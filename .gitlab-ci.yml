@@ -17,11 +17,28 @@ test-job2:
     - sleep 20
 
 deploy:
+  image: debian:stretch
   stage: deploy
   variables:
     HEROKU_APP: django
+    HEROKU_DEPLOYMENT_BRANCH: master
   only:
     - master
+  before_script:
+    - apt-get update -y
+    - apt-get install -y curl git gnupg
+    - curl https://cli-assets.heroku.com/install-ubuntu.sh | sh
+    - |
+      cat >~/.netrc <<EOF
+      machine api.heroku.com
+        login $HEROKU_EMAIL
+        password $HEROKU_TOKEN
+      machine git.heroku.com
+        login $HEROKU_EMAIL
+        password $HEROKU_TOKEN
+      EOF
+    - chmod 600 ~/.netrc
+    - heroku git:remote --app $HEROKU_APP
   script:
-    - gem install dpl
-    - dpl --provider=heroku --app=moveimperial --api-key=$HEROKU_TOKEN
+    - git checkout master
+    - git push heroku master:$HEROKU_DEPLOYMENT_BRANCH
