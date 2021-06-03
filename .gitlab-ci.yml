@@ -23,4 +23,6 @@ deploy:
     - heroku git:remote --app $HEROKU_APP
   script:
     - git checkout master
+    - ls
+    - cd MoveApp
     - git push heroku master:$HEROKU_DEPLOYMENT_BRANCH
