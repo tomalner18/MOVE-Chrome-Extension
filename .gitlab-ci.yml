@@ -5,12 +5,11 @@ test:
     - apt-get install -y python3
     - python3 test/MissingFileTest.py
 
-deploy:
-  stage: deploy
+deployExtension:
+  stage: deployExtension
+  only:
+    - master #to be invoked only on master merge
   script:
-    - apt-get update -y
-    - apt-get install -y zip
-    - rm extension.zip
-    - zip -r extension.zip
-    - git commit -a -m "New Release of Extension"
-    - git push
+    echo deploying
+    # - yarn build
+    # - CLIENT_ID=${CLIENT_ID} CLIENT_SECRET=${CLIENT_SECRET} EXTENSION_ID=${EXTENSION_ID} REFRESH_TOKEN=${REFRESH_TOKEN} node ./deploy.js
