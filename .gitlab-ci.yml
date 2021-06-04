@@ -7,7 +7,6 @@ test:
 
 deploy:
   stage: deploy
-  only: master
   script:
     - apt-get update -y
     - apt-get install -y zip
