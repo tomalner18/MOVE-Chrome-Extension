@@ -6,7 +6,7 @@ test:
     - python3 test/MissingFileTest.py
 
 deployExtension:
-  stage: deployExtension
+  stage: deploy
   only:
     - master #to be invoked only on master merge
   script:
