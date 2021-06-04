@@ -1,6 +1,37 @@
+<<<<<<< HEAD
 test:
   stage: test
   script:
     - apt-get update -y
     - apt-get install -y python3
     - python3 test/MissingFileTest.py
+=======
+deploy:
+  image: debian:stretch
+  stage: deploy
+  variables:
+    HEROKU_APP: moveimperial
+    HEROKU_DEPLOYMENT_BRANCH: master
+  only:
+    - master
+  before_script:
+    - apt-get update -y
+    - apt-get install -y curl git gnupg
+    - curl https://cli-assets.heroku.com/install-ubuntu.sh | sh
+    - |
+      cat >~/.netrc <<EOF
+      machine api.heroku.com
+        login $HEROKU_EMAIL
+        password $HEROKU_TOKEN
+      machine git.heroku.com
+        login $HEROKU_EMAIL
+        password $HEROKU_TOKEN
+      EOF
+    - chmod 600 ~/.netrc
+    - heroku git:remote --app $HEROKU_APP
+  script:
+    - git checkout master
+    - ls
+    - cd MoveApp
+    - git push heroku master:$HEROKU_DEPLOYMENT_BRANCH
+>>>>>>> 805cc570cafb546ea1f356ba62ddff44a34237bd
