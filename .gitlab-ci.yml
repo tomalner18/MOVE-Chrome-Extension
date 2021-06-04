@@ -3,7 +3,7 @@ test:
   script:
     - apt-get update -y
     - apt-get install -y python3
-    - pytho3 test/MissingFileTest.py
+    - python3 test/MissingFileTest.py
 
 deploy:
   stage: deploy
