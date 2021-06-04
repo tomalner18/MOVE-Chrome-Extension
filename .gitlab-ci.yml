@@ -15,5 +15,3 @@ deploy:
     - zip -r extension.zip
     - git commit -a -m "New Release of Extension"
     - git push
-
-
