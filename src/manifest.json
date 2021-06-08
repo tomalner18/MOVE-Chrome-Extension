@@ -17,5 +17,8 @@
     "background": {
         "scripts": ["./alarm.js"]
     },
+    "content_scripts": {
+      "css": ["style.css"]
+    },
     "permissions": ["background", "storage", "notifications", "alarms"]
   }

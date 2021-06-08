@@ -1,0 +1,17 @@
+body {
+    text-align: center;
+}
+
+  #MoveLogo {
+    width: 100px;
+    margin: 5px;
+}
+
+  button {
+    margin: 5px;
+    outline: none;
+}
+
+  button:hover {
+    outline: #80DEEA double thick;
+}
