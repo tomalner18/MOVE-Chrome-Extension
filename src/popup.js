@@ -24,7 +24,7 @@ function openHome() {
   var x = document.getElementsByClassName("active");
   x[0].classList.remove("active");
   clearTabs();
-  document.getElementById("homepage").style.display = "inline";
+  document.getElementById("home-page").style.display = "inline";
   var y = document.getElementById("home-btn");
   y.classList.add("active")
 }
@@ -33,7 +33,7 @@ function openStat() {
   var x = document.getElementsByClassName("active");
   x[0].classList.remove("active");
   clearTabs();
-  document.getElementById("statpage").style.display = "inline";
+  document.getElementById("stat-page").style.display = "inline";
   var y = document.getElementById("stat-btn");
   y.classList.add("active")
 }
@@ -42,7 +42,7 @@ function openCalendar() {
   var x = document.getElementsByClassName("active");
   x[0].classList.remove("active");
   clearTabs();
-  document.getElementById("homepage").style.display = "inline";
+  document.getElementById("calendar-page").style.display = "inline";
   var y = document.getElementById("calendar-btn");
   y.classList.add("active")
 }
@@ -51,17 +51,26 @@ function openSocial() {
   var x = document.getElementsByClassName("active");
   x[0].classList.remove("active");
   clearTabs();
-  document.getElementById("homepage").style.display = "inline";
+  document.getElementById("social-page").style.display = "inline";
   var y = document.getElementById("social-btn");
+  y.classList.add("active")
+}
+
+function openMore() {
+  var x = document.getElementsByClassName("active");
+  x[0].classList.remove("active");
+  clearTabs();
+  document.getElementById("more-page").style.display = "inline";
+  var y = document.getElementById("more-btn");
   y.classList.add("active")
 }
 
 function iniNav() {
   document.getElementById('home-btn').addEventListener('click', openHome);
   document.getElementById('stat-btn').addEventListener('click', openStat);
-  document.getElementById('calendar-btn').addEventListener('click', openHome);
-  document.getElementById('social-btn').addEventListener('click', openHome);
-  document.getElementById('more-btn').addEventListener('click', openHome);
+  document.getElementById('calendar-btn').addEventListener('click', openCalendar);
+  document.getElementById('social-btn').addEventListener('click', openSocial);
+  document.getElementById('more-btn').addEventListener('click', openMore);
 }
   
 //An Alarm delay of less than the minimum 1 minute will fire
