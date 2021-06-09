@@ -5,40 +5,38 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Timer Popup</title>
+
+    <!-- Stylesheets: -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <!--
-      - JavaScript and HTML must be in separate files: see our Content Security
-      - Policy documentation[1] for details and explanation.
-      -
-      - [1]: https://developer.chrome.com/extensions/contentSecurityPolicy
-     -->
+
   </head>
   <body>
-      <!-- An Alarm delay of less than the minimum 1 minute will fire
-      in approximately 1 minute incriments if released -->
-      <div class="nav-container">
-        <button class="active">
-          <img src="icons/home_white_36dp.svg" alt="">
-        </button>
-        <button>
-          <img src="icons/trending_up_white_36dp.svg" alt="">
-        </button>
-        <button>
-          <img src="icons/today_white_36dp.svg" alt="">
-        </button>
+
+    <!-- TopBar: -->
+    <div class="nav-container">
+      <button class="active" onclick="openTab('Homepage')">
+        <img src="icons/home_white_36dp.svg" alt="">
+      </button>
+      <button onclick="openTab('Statpage')">
+        <img src="icons/trending_up_white_36dp.svg" alt="">
+      </button>
+      <button onclick="openTab('Homepage')">
+        <img src="icons/today_white_36dp.svg" alt="">
+      </button>
+      <button onclick="openTab('Homepage')">
+        <img src="icons/people_white_36dp.svg" alt="">
+      </button>
+      <div class="nav-right">
         <button>
           <img src="icons/people_white_36dp.svg" alt="">
         </button>
-        <div class="nav-right">
-          <button>
-            <img src="icons/people_white_36dp.svg" alt="">
-          </button>
-        </div>
       </div>
+    </div>
 
-      <label>Choose a browser from this list:
+    <div id="Homepage" class="tab">
+      <label>Choose a b from this list:
         <input list="browsers" name="myBrowser" /></label>
         <datalist id="browsers">
           <option value="Chrome">
@@ -52,7 +50,13 @@
       <button id='15min' value='15'>15 Minutes</button>
       <button id='30min' value='30'>30 Minutes</button>
       <button id='cancelAlarm'>Cancel Alarm</button>
-   <!-- link to non-persistent background script -->
-   <script src="popup.js"></script>
+    </div>
+
+    <div id="Statpage" class="tab" style="display:none">
+      <button id='canceAlarm'>Cancel Alarm</button>
+    </div>
+
+    <!-- Scripts: -->
+    <script src="popup.js"></script>
   </body>
 </html>

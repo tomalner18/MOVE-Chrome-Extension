@@ -4,21 +4,26 @@ function setAlarm(event) {
     chrome.alarms.create({delayInMinutes: minutes});
     chrome.storage.sync.set({minutes: minutes});
     window.close();
-  }
+}
   
-  function clearAlarm() {
+function clearAlarm() {
     chrome.browserAction.setBadgeText({text: ''});
     chrome.alarms.clearAll();
     window.close();
-  }
+}
 
-  function openTab() {
-    
-  }
+function openTab(tabName) {
+    var i;
+    var x = document.getElementsByClassName("tab");
+    for (i = 0; i < x.length; i++) {
+      x[i].style.display = "none";
+    }
+    document.getElementById(tabName).style.display = "block"
+}
   
-  //An Alarm delay of less than the minimum 1 minute will fire
-  // in approximately 1 minute incriments if released
-  document.getElementById('sampleSecond').addEventListener('click', setAlarm);
-  document.getElementById('15min').addEventListener('click', setAlarm);
-  document.getElementById('30min').addEventListener('click', setAlarm);
-  document.getElementById('cancelAlarm').addEventListener('click', clearAlarm);
+//An Alarm delay of less than the minimum 1 minute will fire
+// in approximately 1 minute incriments if released
+document.getElementById('sampleSecond').addEventListener('click', setAlarm);
+document.getElementById('15min').addEventListener('click', setAlarm);
+document.getElementById('30min').addEventListener('click', setAlarm);
+document.getElementById('cancelAlarm').addEventListener('click', clearAlarm);
