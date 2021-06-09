@@ -1,7 +1,7 @@
 {
     "name": "Move Chrome Extension",
     "version": "0.0.1",
-    "manifest_version": 2,
+    "manifest_version": 3,
     "description": "This extension was created to schedule breaks",
     "homepage_url": "https://www.imperial.ac.uk/sport",
     "icons": {
@@ -16,9 +16,6 @@
     },
     "background": {
         "scripts": ["./alarm.js"]
-    },
-    "content_scripts": {
-      "css": ["style.css"]
     },
     "permissions": ["background", "storage", "notifications", "alarms"]
   }
