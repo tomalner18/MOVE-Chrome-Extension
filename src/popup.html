@@ -16,26 +16,26 @@
 
     <!-- TopBar: -->
     <div class="nav-container">
-      <button class="active" onclick="openTab('Homepage')">
+      <button id="home-btn" class="active">
         <img src="icons/home_white_36dp.svg" alt="">
       </button>
-      <button onclick="openTab('Statpage')">
+      <button id="stat-btn">
         <img src="icons/trending_up_white_36dp.svg" alt="">
       </button>
-      <button onclick="openTab('Homepage')">
+      <button id="calendar-btn">
         <img src="icons/today_white_36dp.svg" alt="">
       </button>
-      <button onclick="openTab('Homepage')">
+      <button id="social-btn">
         <img src="icons/people_white_36dp.svg" alt="">
       </button>
       <div class="nav-right">
-        <button>
-          <img src="icons/people_white_36dp.svg" alt="">
+        <button id="more-btn">
+          <img src="icons/more_horiz_white_36dp.svg" alt="">
         </button>
       </div>
     </div>
 
-    <div id="Homepage" class="tab">
+    <div id="homepage" class="tab">
       <label>Choose a b from this list:
         <input list="browsers" name="myBrowser" /></label>
         <datalist id="browsers">
@@ -52,8 +52,8 @@
       <button id='cancelAlarm'>Cancel Alarm</button>
     </div>
 
-    <div id="Statpage" class="tab" style="display:none">
-      <button id='canceAlarm'>Cancel Alarm</button>
+    <div id="statpage" class="tab" style="display:none">
+      <button id='cancelAlarm'>Cancel Alarm</button>
     </div>
 
     <!-- Scripts: -->
