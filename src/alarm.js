@@ -1,17 +1,21 @@
 'use strict';
 
+var myNotificationID = null;
+
 chrome.alarms.onAlarm.addListener(function() {
   chrome.browserAction.setBadgeText({text: ''});
-  chrome.notifications.create({
+  chrome.notifications.create("", {
       type:     'basic',
       iconUrl:  'icons/logo48.png',
       requireInteraction: true,
       title:    'Study Break!',
       message:  'It has come to the end of this study period, please take a break!',
       buttons: [
-        {title: 'exercises'}
+        {title: 'Exercises'}
       ],
-      priority: 0});
+      priority: 0}, function(id) {
+        myNotificationID = id;
+      });
       var yourSound = new Audio('./alarm.mp3');
       yourSound.play();
 });
@@ -21,4 +25,14 @@ chrome.notifications.onButtonClicked.addListener(function() {
     chrome.browserAction.setBadgeText({text: 'ON'});
     chrome.alarms.create({delayInMinutes: item.minutes});
   });
+
+  /* FIRST VERSION - ONLY ONE VIDEO ON LINK
+  */
+   window.open("https://www.youtube.com/watch?v=t6LY_7O5J2w&list=PL6vDoQZlo-jvgiws4kutVTUtgNuTygkvU");
+   window.focus();
+
+
+
+
+
 });
