@@ -27,10 +27,16 @@ chrome.notifications.onButtonClicked.addListener(function() {
   });
 
   /* FIRST VERSION - ONLY ONE VIDEO ON LINK
-  */
-   window.open("https://www.youtube.com/watch?v=t6LY_7O5J2w&list=PL6vDoQZlo-jvgiws4kutVTUtgNuTygkvU");
-   window.focus();
+   * window.open("https://www.youtube.com/watch?v=t6LY_7O5J2w&list=PL6vDoQZlo-jvgiws4kutVTUtgNuTygkvU");
+   * window.focus();
+   */
 
+   /* SECOND VERSION - MORE VIDEOS ALREADY DOWNLOADED
+    */
+    window.open("exercises.html");
+
+
+    
 
 
 
