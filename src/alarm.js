@@ -2,7 +2,7 @@
 
 chrome.alarms.onAlarm.addListener(function() {
   chrome.browserAction.setBadgeText({text: ''});
-  chrome.notifications.create({
+  chrome.notifications.create(`my-notification-${Date.now()}`,{
       type:     'basic',
       iconUrl:  'icons/logo48.png',
       requireInteraction: true,
@@ -15,6 +15,8 @@ chrome.alarms.onAlarm.addListener(function() {
       var yourSound = new Audio('./alarm.mp3');
       yourSound.play();
 });
+
+
 
 chrome.notifications.onButtonClicked.addListener(function() {
   chrome.storage.sync.get(['minutes'], function(item) {
