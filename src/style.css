@@ -4,7 +4,6 @@
 }
 
 body {
-    text-align: center;
     width: 500px;
     height: 420px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -49,3 +48,34 @@ button {
     margin: 0px;
     outline: none;
 }
+
+
+
+/* Home-Page */
+
+.home-page {
+  margin: 5px;
+  display: grid;
+}
+
+/* Header */
+
+.page-header {
+  color: #6400A2;
+  font-size: 18px;
+  font-weight: bold;
+  width: 100%;
+}
+
+.page-content {
+  /* float: left; */
+  display: grid;
+  padding: 50px 0 30px 0
+}
+
+.session-field {
+  margin-top: 10px;
+  margin-left: 25px;
+  margin-bottom: 10px;
+}
+

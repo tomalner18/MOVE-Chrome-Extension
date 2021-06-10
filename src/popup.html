@@ -35,35 +35,42 @@
       </div>
     </div>
 
-    <div id="home-page" class="tab">
-      <label>Choose a study duration:
-        <input list="browsers" name="myBrowser" /></label>
-        <datalist id="browsers">
-          <option value="20">
-          <option value="25">
-          <option value="30">
-          <option value="35">
-          <option value="40">
-          <option value="45">
-        </datalist>
-      <button id='sampleSecond' value='0.1'>Sample Second</button>
-      <button id='15min' value='15'>15 Minutes</button>
-      <button id='30min' value='30'>30 Minutes</button>
-      <button id='cancelAlarm'>Cancel Alarm</button>
+    <!-- Home-Page -->
+    <div id="home-page" class="tab home-page">
+      <div class="page-header">
+        Create a work session
+      </div>
+      <div class="page-content">
+        <div class="session-field">
+          <label>Choose a study duration:
+            <input id="study-time" type="number" min="5" max="120" value="45" /></label>
+        </div>
+        <div class = session-field>
+          <label>Choose a break duration:
+            <input id="break-time" type="number" min="5" max="120" value="10" /></label>
+        </div>
+
+        <button id='create-solo' value='Create'>Create</button>
+        <button id='cancelAlarm'>Cancel Alarm</button>
+      </div>
     </div>
 
+    <!-- Stat-Page -->
     <div id="stat-page" class="tab" style="display:none">
       <button id='viewStats'>View Stats</button>
     </div>
 
+    <!-- Calendar-Page -->
     <div id="calendar-page" class="tab" style="display:none">
       <button id='viewCalendar'>View Calendar</button>
     </div>
 
+    <!-- Social-Page -->
     <div id="social-page" class="tab" style="display:none">
       <button id='viewGroups'>View Groups</button>
     </div>
 
+    <!-- More-Page -->
     <div id="more-page" class="tab" style="display:none">
       <button id='view-more'>View More</button>
     </div>
