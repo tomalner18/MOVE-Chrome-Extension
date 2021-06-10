@@ -32,11 +32,12 @@ chrome.notifications.onButtonClicked.addListener(function() {
    */
 
    /* SECOND VERSION - MORE VIDEOS ALREADY DOWNLOADED
+    * window.open("exercises.html");
     */
-    window.open("exercises.html");
 
-
-    
+   /* THIRD VERSION - COMBINED;
+    */
+    window.open("exercise.html");
 
 
 
