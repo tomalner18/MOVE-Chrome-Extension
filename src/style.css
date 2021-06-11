@@ -89,6 +89,9 @@ input {
   text-align: center;
   padding-right: 0px !important;
   font-size: 30px;
+  border: none;
+  mix-blend-mode: normal;
+  box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.25);
 }
 
 
@@ -122,11 +125,39 @@ input[type=number]::-webkit-outer-spin-button {
     color: white;
     font-weight: bold;
     background: linear-gradient(135deg, rgba(200, 12, 158) 2%, rgba(0, 125, 241) 110.6%);
+    box-shadow: 0 3px #999;
 
 }
 
-.session-button:nth-of-type(2)
+.session-button:hover {
+  background: linear-gradient(135deg, rgb(143, 6, 113) 2%, rgb(7, 79, 146) 110.6%);
+}
+
+.session-button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+.red-button
 {
     margin-top: 20px;
     background: red;
 } 
+
+.red-button:hover{
+  background: darkred;
+}
+
+#cal-link {
+  margin: auto;
+  width: 50%;
+  height:30%;
+  margin-top: 20px;
+}
+#viewCalendar, #viewGroups {
+  
+  width: 100%;
+  height:200%;
+  margin-top: 30%;
+}
