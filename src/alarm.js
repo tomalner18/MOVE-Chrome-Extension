@@ -14,7 +14,7 @@ var default_config = {
 }
 
 // Creates a Chrome Notification
-function createNotification() {
+function notifyFinish() {
   chrome.notifications.create(`move-notification-${Date.now()}`, {
     type: "basic",
     iconUrl: "icons/logo48.png",
