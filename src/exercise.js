@@ -11,11 +11,8 @@ const blockquote_tag = document.querySelector(".instagram-media");
 const hyperlink_tag = document.querySelector(".instagram-media-2");
 const header = document.querySelector(".video_title");
 
-console.log("some stuff just before making the API call");
-
 axios.get(api_query)
 .then(function (response) {
-    console.log("finished making the API call");
     console.log(response);
     console.log(response.data.filePath);
 
