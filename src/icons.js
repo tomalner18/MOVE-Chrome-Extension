@@ -15,9 +15,9 @@ var quotes = ["Education is the passport to the future, for tomorrow belongs to 
   "Believe it can be done. When you believe something can be done, really believe, your mind will find the ways to do it. Believing a solution paves the way to solution. —David Joseph Schwartz"];
 
 var activities = ["Drink some water", "Grab a snack", "Go for a walk", "Go for a run",
-  "Try to scribble/draw/paint something", "Take a few deep breaths", "Meditate", "Relaxation to music",
+  "Try to scribble/draw/paint something", "Take a few deep breaths", "Meditate", "Relax to music",
   "Close your eyes and think about your favourite place", "Bond with your pet", "Cook something",
-  "Read two pages from your favourite novel", "Take a powe nap", "Play your favourite instrument"];
+  "Read two pages from your favourite novel", "Take a power nap", "Play your favourite instrument"];
 
 function newQuote(){
   var rand = quotes[Math.floor(Math.random() * (quotes.length))];
@@ -26,8 +26,7 @@ function newQuote(){
   document.getElementById('output-quote').style.fontStyle = 'italic';
   document.getElementById('output-quote').style.fontSize= "25px";
   document.getElementById('output-quote').style.textAlign = "center";
-  document.getElementById('home-page').style.backgroundImage = "url('https://i.ytimg.com/vi/ysuUmpovJBE/maxresdefault.jpg')";
-  //document.getElementById('home-page').style.backgroundSize = "520px 560px";
+  //document.getElementById('home-page').style.backgroundImage = "url('https://i.ytimg.com/vi/ysuUmpovJBE/maxresdefault.jpg')";
 }
 
 function newActivity(){
@@ -37,9 +36,7 @@ function newActivity(){
   document.getElementById('output-activity').style.fontStyle = 'italic';
   document.getElementById('output-activity').style.textAlign = "center";
   document.getElementById('output-activity').style.fontSize="25px";
-  document.getElementById('stat-page').style.backgroundImage = "url('https://i.ytimg.com/vi/ysuUmpovJBE/maxresdefault.jpg')";
 }
-
 
 function clearTabs() {
   var i;
@@ -49,30 +46,43 @@ function clearTabs() {
   }
 }
 
-function openHome() {
+function clearNav() {
   var x = document.getElementsByClassName("active");
-  x[0].classList.remove("active");
+  if(x.length != 0) {
+    x[0].classList.remove("active");
+  }
+}
+
+function openExercise() {
+  clearNav();
   clearTabs();
-  document.getElementById("home-page").style.display = "grid";
-  var y = document.getElementById("home-btn");
+  document.getElementById("exercise-page").style.display = "grid";
+  var y = document.getElementById("exercise-btn");
   y.classList.add("active")
 }
 
-function openStat() {
-  var x = document.getElementsByClassName("active");
-  x[0].classList.remove("active");
+function openRelax() {
+  clearNav();
   clearTabs();
-  document.getElementById("stat-page").style.display = "grid";
-  var y = document.getElementById("stat-btn");
+  document.getElementById("relax-page").style.display = "grid";
+  var y = document.getElementById("relax-btn");
   y.classList.add("active")
 }
 
-
-function iniNav() {
-  document.getElementById('home-btn').addEventListener('click', openHome);
-  document.getElementById('stat-btn').addEventListener('click', openStat);
+function openMotivation() {
+  clearNav();
+  clearTabs();
+  document.getElementById("motivation-page").style.display = "grid";
+  var y = document.getElementById("motivation-btn");
+  y.classList.add("active");
 }
 
-  iniNav();
+function iniBreakNav() {
+  document.getElementById('exercise-btn').addEventListener('click', openExercise);
+  document.getElementById('relax-btn').addEventListener('click', openRelax);
+  document.getElementById('motivation-btn').addEventListener('click', openMotivation);
+}
+
+  iniBreakNav();
   document.getElementById('quote').addEventListener('click', newQuote);
   document.getElementById('activity').addEventListener('click', newActivity);

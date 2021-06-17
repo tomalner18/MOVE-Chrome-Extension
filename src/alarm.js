@@ -60,15 +60,12 @@ chrome.notifications.onButtonClicked.addListener(function(notifId, btnIdx) {
         if (btnIdx === 0) {
           window.open("exercise.html");
         } else if (btnIdx === 1) {
-          window.open("icons.html", 'targetWindow',
-                                 `toolbar=no,
-                                  location=no,
-                                  status=no,
-                                  menubar=no,
-                                  scrollbars=yes,
-                                  resizable=yes,
-                                  width=500,
-                                  height=500`);
+          chrome.windows.create({
+            url: "break.html",
+            type: "popup",
+            width: 436,  /*Add 16 to desired size? */
+            height: 300
+          })
         }
     }
 });
