@@ -40,7 +40,8 @@ chrome.alarms.onAlarm.addListener(function() {
       title:    'Study Break!',
       message:  'It has come to the end of this study period, please take a break!',
       buttons: [
-        {title: 'Exercises'}
+        {title: 'Exercises'},
+        {title: 'Other'}
       ],
       priority: 0}, function(id) {
         myNotificationID = id;
@@ -54,23 +55,20 @@ function playSound() {
 }
 
 
-
-chrome.notifications.onButtonClicked.addListener(function() {
-    chrome.storage.sync.get(['minutes'], function(item) {
-      chrome.browserAction.setBadgeText({text: 'ON'});
-      chrome.alarms.create({delayInMinutes: item.minutes});
-    });
-
-    /* FIRST VERSION - ONLY ONE VIDEO ON LINK
-     * window.open("https://www.youtube.com/watch?v=t6LY_7O5J2w&list=PL6vDoQZlo-jvgiws4kutVTUtgNuTygkvU");
-     * window.focus();
-     */
-
-     /* SECOND VERSION - MORE VIDEOS ALREADY DOWNLOADED
-      * window.open("exercises.html");
-      */
-
-     /* THIRD VERSION - COMBINED;
-      */
-      window.open("exercise.html");
+chrome.notifications.onButtonClicked.addListener(function(notifId, btnIdx) {
+    if (notifId === myNotificationID) {
+        if (btnIdx === 0) {
+          window.open("exercise.html");
+        } else if (btnIdx === 1) {
+          window.open("icons.html", 'targetWindow',
+                                 `toolbar=no,
+                                  location=no,
+                                  status=no,
+                                  menubar=no,
+                                  scrollbars=yes,
+                                  resizable=yes,
+                                  width=500,
+                                  height=500`);
+        }
+    }
 });
