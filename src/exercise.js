@@ -1,22 +1,34 @@
 import axios from "axios";
+import instagram_embed from "./instagram_embed";
 
-console.log("testing 123");
+console.log("the beginning of exercise.js");
 
-const api_query = "http://127.0.0.1:8000/api/videos/19";
+// generate random integer from 1 to 31, as there are 31 videos stored in the database right now.
+const randomInt = Math.floor(Math.random() * 31) + 1
+const api_query = "https://moveimperial.herokuapp.com/api/videos/" + randomInt;
 
-const instagam_hyperlink = document.querySelector(".instagram");
-const button = instagam_hyperlink.getElementsByTagName("input")[0];
+const blockquote_tag = document.querySelector(".instagram-media");
+const hyperlink_tag = document.querySelector(".instagram-media-2");
+const header = document.querySelector(".video_title");
+
+console.log("some stuff just before making the API call");
 
 axios.get(api_query)
 .then(function (response) {
+    console.log("finished making the API call");
     console.log(response);
     console.log(response.data.filePath);
 
-    instagam_hyperlink.href = "https://" + response.data.filePath;
-    button.value = response.data.title;
+    const url = response.data.filePath + "?utm_source=ig_embed&amp;utm_campaign=loading";
+    blockquote_tag.setAttribute("data-instgrm-permalink", url);
+    console.log(blockquote_tag);
+    hyperlink_tag.href = url;
 
-    console.log("testing 456");
+    header.textContent = response.data.title;
+
+    console.log("the end of exercise.js");
+
+    instagram_embed.embed();
 });
-
 
 
