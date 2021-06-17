@@ -53,6 +53,12 @@ function clearNav() {
   }
 }
 
+function openLanding() {
+  clearNav();
+  clearTabs();
+  document.getElementById("landing-page").style.display = "grid"
+}
+
 function openExercise() {
   clearNav();
   clearTabs();
@@ -83,6 +89,13 @@ function iniBreakNav() {
   document.getElementById('motivation-btn').addEventListener('click', openMotivation);
 }
 
+function iniBacks() {
+  document.getElementById("exercise-back").addEventListener('click', openLanding);
+  document.getElementById("relax-back").addEventListener('click', openLanding);
+  document.getElementById("motivation-back").addEventListener('click', openLanding);
+}
+
   iniBreakNav();
+  iniBacks();
   document.getElementById('quote').addEventListener('click', newQuote);
   document.getElementById('activity').addEventListener('click', newActivity);

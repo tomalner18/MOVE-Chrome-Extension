@@ -11,7 +11,6 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="styles/shared-style.css">
   <link rel="stylesheet" href="styles/break-style.css">
-
 </head>
 
 <body>
@@ -31,29 +30,28 @@
 
   <!-- Landing-Page -->
   <div id="landing-page" class="tab landing-page">
+    <div class="page-header">
+      It's your break!
+    </div>
     <br></br>
-    <p style="font-size:20px">Think about the meaning behind the quote...</p>
-    <br></br>
-    <div id="output-quote">Press the button to generate a Quote!</div>
-    <br></br>
-    <button id="quote">New Quote!</button>
+    <p style="font-size:20px">You can schedule a new session to start immediately after your break</p>
+    <div class="page-content">
+      <button id="schedule-btn">Schedule</button>
+    </div>
   </div>
 
   <!-- Exercise-Page -->
   <div id="exercise-page" class="tab exercise-page" style="display:none">
-    <br></br>
-    <p style="font-size:20px">Think about the meaning behind the quote...</p>
-    <br></br>
-    <div id="output-quote">Press the button to generate a Quote!</div>
-    <br></br>
-    <button id="quote">New Quote!</button>
+    <div class="page-content">
+      <button id="exercise-back">Back</button>
+    </div>
   </div>
 
   <!-- Relax -->
   <div id="relax-page" class="tab relax-page" style="display:none">
-    <br></br>
     <p style="font-size:20px">Our Tip!</p>
     <br></br>
+    <button id="relax-back">Back</button>
     <div id="output-activity">Press the button to generate an activity and try to relax!</div>
     <br></br>
     <button id="activity">New Activity!</button>
@@ -61,16 +59,18 @@
 
   <!-- Motivation-Page -->
   <div id="motivation-page" class="tab motivation-page" style="display:none">
-    <br></br>
-    <p style="font-size:20px">Think about the meaning behind the quote...</p>
-    <br></br>
-    <div id="output-quote">Press the button to generate a Quote!</div>
-    <br></br>
-    <button id="quote">New Quote!</button>
+    <div class="page-content">
+      <p style="font-size:20px">Think about the meaning behind the quote...</p>
+      <br></br>
+      <button id="motivation-back">Back</button>
+      <div id="output-quote">Press the button to generate a Quote!</div>
+      <br></br>
+      <button id="quote">New Quote!</button>
+    </div>
   </div>
 
   <!-- Scripts: -->
-  <script src="icons.js"></script>
+  <script src="break.js"></script>
 </body>
 
 </html>

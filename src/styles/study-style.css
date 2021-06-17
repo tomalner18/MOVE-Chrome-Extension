@@ -19,6 +19,13 @@ body {
 button.active {
   opacity: 1;
 }
+
+.page-content {
+  /* float: left; */
+  display: grid;
+  padding: 50px 0 30px 0
+}
+
 /* Home-Page */
 
 .home-page, #stat-page {

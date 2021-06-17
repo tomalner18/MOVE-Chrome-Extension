@@ -32,3 +32,7 @@ body {
 button.active {
   opacity: 1;
 }
+
+.page-content {
+  display: grid;
+}
