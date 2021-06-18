@@ -1,14 +1,22 @@
 function setAlarm() {
     let minutes = parseFloat(document.getElementById("study-time").value);
+    let pause = parseFloat(document.getElementById("break-time").value);
+    chrome.storage.local.set({'pausetime': pause}, function (){
+      console.log("Storage Succesful");
+  });
+    chrome.storage.local.set({timer: true});
     chrome.browserAction.setBadgeText({text: 'ON'});
-    chrome.alarms.create({delayInMinutes: minutes});
-    chrome.storage.sync.set({minutes: minutes});
+    chrome.browserAction.setBadgeBackgroundColor({color: 'green'})
+    chrome.alarms.create({when: Date.now() + 1000 * 60 * minutes});
+    chrome.storage.local.set({minutes: minutes});
     window.close();
 }
   
 function clearAlarm() {
     chrome.browserAction.setBadgeText({text: ''});
     chrome.alarms.clearAll();
+    chrome.storage.local.set({timer: false} , function (){
+      console.log("Storage Succesful");});
     window.close();
 }
 

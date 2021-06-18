@@ -13,6 +13,9 @@ var default_config = {
   snooze_enabled: true
 }
 
+chrome.browserAction.setBadgeText({text: 'OFF'});
+chrome.browserAction.setBadgeBackgroundColor({color: 'red'})
+
 // Creates a Chrome Notification
 function createNotification() {
   chrome.notifications.create(`move-notification-${Date.now()}`, {
@@ -32,20 +35,59 @@ function createNotification() {
   }
 
 chrome.alarms.onAlarm.addListener(function() {
-  chrome.browserAction.setBadgeText({text: ''});
-  chrome.notifications.create(`my-notification-${Date.now()}`,{
-      type:     'basic',
-      iconUrl:  'icons/logo48.png',
-      requireInteraction: true,
-      title:    'Study Break!',
-      message:  'It has come to the end of this study period, please take a break!',
-      buttons: [
-        {title: 'Take a break'}
-      ],
-      priority: 0}, function(id) {
-        myNotificationID = id;
-      });
-      playSound();
+  chrome.extension.getBackgroundPage().console.log("hi");
+  chrome.storage.local.get(['pausetime', 'timer'], function(result) {
+    chrome.extension.getBackgroundPage().console.log('Value currently is ' + result.pausetime);
+    chrome.extension.getBackgroundPage().console.log('Value currently is ' + result.timer);
+
+    if (result.timer) {
+      chrome.notifications.create(`my-notification-${Date.now()}`,{
+        type:     'basic',
+        iconUrl:  'icons/logo48.png',
+        requireInteraction: true,
+        title:    'Study Break!',
+        message:  'It has come to the end of this study period, please take a break!',
+        buttons: [
+          {title: 'Take a break'}
+        ],
+        priority: 0}, function(id) {
+          myNotificationID = id;
+        });
+        playSound();
+        chrome.browserAction.setBadgeText({text: 'BRK'});
+        chrome.browserAction.setBadgeBackgroundColor({color: 'blue'})
+
+        chrome.storage.local.set({timer: false} , function (){
+          console.log("Storage Succesful");});
+          let endtime = Date.now() + 1000 * 60 * result.pausetime
+          chrome.storage.local.set({timerend: endtime}, function(){
+            chrome.alarms.create({when: endtime});
+          });
+          playSound();         
+
+    } else {
+      chrome.browserAction.setBadgeText({text: 'OFF'});
+      chrome.browserAction.setBadgeBackgroundColor({color: 'red'})
+      console.log("End of break");
+
+      chrome.notifications.create(`my-notification-${Date.now()}`,{
+        type:     'basic',
+        iconUrl:  'icons/logo48.png',
+        requireInteraction: true,
+        title:    'End of Study Break',
+        message:  'It has come to the end of this break period, you are advised to resume working!',
+        buttons: [
+          {title: 'Okay'}
+        ],
+        priority: 0}, function(id) {
+          myNotificationID = id;
+        });
+        var sound = new Audio('./mixkit-positive-notification-951.wav')
+          sound.play();
+            }
+  });
+  
+ 
 });
 
 function playSound() {
