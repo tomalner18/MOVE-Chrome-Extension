@@ -1,14 +1,14 @@
 var exercise_videos = [{
     "id": 1,
-    "title": "Low intensity workout (hip dips, ankle touches, lateral lunges)",
+    "title": "Low intensity workout",
     "filePath": "http://instagram.com/p/CM1lulkAnu8/"
   }, {
     "id": 2,
-    "title": "HIIT circuit (sideway hops, lateral skaters, broad jump quick feet, lateral high knees, high knee drives)",
+    "title": "HIIT circuit",
     "filePath": "http://instagram.com/p/CMjjrxJAlge/"
   }, {
     "id": 3,
-    "title": "Chair step ups, core plank twists, chair dips",
+    "title": "Chair and core exercises",
     "filePath": "http://instagram.com/p/CMcGf7qA_fo/"
   }, {
     "id": 4,

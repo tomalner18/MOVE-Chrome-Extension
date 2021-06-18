@@ -40,8 +40,7 @@ chrome.alarms.onAlarm.addListener(function() {
       title:    'Study Break!',
       message:  'It has come to the end of this study period, please take a break!',
       buttons: [
-        {title: 'Exercises'},
-        {title: 'Other'}
+        {title: 'Take a break'}
       ],
       priority: 0}, function(id) {
         myNotificationID = id;
@@ -57,15 +56,13 @@ function playSound() {
 
 chrome.notifications.onButtonClicked.addListener(function(notifId, btnIdx) {
     if (notifId === myNotificationID) {
-        if (btnIdx === 0) {
-          window.open("exercise.html");
-        } else if (btnIdx === 1) {
-          chrome.windows.create({
-            url: "break.html",
-            type: "popup",
-            width: 436,  /*Add 16 to desired size? */
-            height: 300
-          })
-        }
+      if (btnIdx === 0) {
+        chrome.windows.create({
+          url: "break.html",
+          type: "popup",
+          width: 436,  /*Add 16 to desired size? */
+          height: 300
+        })
+      } 
     }
 });

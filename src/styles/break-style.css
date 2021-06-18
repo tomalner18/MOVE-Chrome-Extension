@@ -37,6 +37,7 @@ button.active {
   display: grid;
 }
 
+/* ----------------------------------------------------- */
 /* for the exercise page */
 .button {
   background-color: rgb(230, 223, 223);
@@ -58,3 +59,26 @@ button.active {
   background-color: #b0b3b0;
   color: black;
 }
+
+/* ----------------------------------------------------- */
+/* for the more exercises page */
+/* Create three equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 33.33%;
+  /* padding: 10px; */
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+  }
+}
+/* ----------------------------------------------------- */
