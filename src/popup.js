@@ -4,7 +4,7 @@ function setAlarm() {
     chrome.storage.local.set({'pausetime': pause}, function (){
       console.log("Storage Succesful");
   });
-    chrome.storage.local.set({timer: true});
+    chrome.storage.local.set({timer: true, break: false});
     chrome.browserAction.setBadgeText({text: 'ON'});
     chrome.browserAction.setBadgeBackgroundColor({color: 'green'})
     chrome.alarms.create({when: Date.now() + 1000 * 60 * minutes});
