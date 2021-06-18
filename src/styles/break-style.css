@@ -37,6 +37,22 @@ button.active {
   display: grid;
 }
 
+.button0 {
+  background-color: rgb(230, 223, 223);
+  border: black 2px solid;
+  color: black;
+  padding: 6px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  border-radius: 8px;
+  width: 150px;
+}
+
 /* ----------------------------------------------------- */
 /* for the exercise page */
 .button {
