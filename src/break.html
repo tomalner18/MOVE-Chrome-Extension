@@ -40,13 +40,19 @@
     </div>
   </div>
 
+  <!---------------------------------------------------------------------------->
   <!-- Exercise-Page -->
   <div id="exercise-page" class="tab exercise-page" style="display:none">
     <div class="page-content">
       <button id="exercise-back">Back</button>
+      
+      <!-- this div will be injected some HTML code via a script -->
+      <div class="single_exercise_video"></div>
+
     </div>
   </div>
 
+  <!---------------------------------------------------------------------------->
   <!-- Relax -->
   <div id="relax-page" class="tab relax-page" style="display:none">
     <p style="font-size:20px">Our Tip!</p>
@@ -57,6 +63,7 @@
     <button id="activity">New Activity!</button>
   </div>
 
+  <!---------------------------------------------------------------------------->
   <!-- Motivation-Page -->
   <div id="motivation-page" class="tab motivation-page" style="display:none">
     <div class="page-content">
@@ -69,8 +76,10 @@
     </div>
   </div>
 
+  <!---------------------------------------------------------------------------->
   <!-- Scripts: -->
-  <script src="break.js"></script>
+  <script type="module" src="bundles/break_bundle.js"></script>
+
 </body>
 
 </html>

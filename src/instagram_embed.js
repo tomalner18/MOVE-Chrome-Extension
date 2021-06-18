@@ -1,3 +1,5 @@
+// this is a script taken from https://www.instagram.com/static/bundles/es6/EmbedSDK.js/58b07fec4121.js
+
 function embed() {
     console.log("the beginning of instagram_embed.js");
     const blockquote_tag = document.querySelector(".instagram-media");
