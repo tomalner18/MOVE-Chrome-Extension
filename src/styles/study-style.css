@@ -124,27 +124,26 @@ button.active {
   
   .container {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1.6fr 0.4fr 1fr;
+    grid-template-columns: 0.54fr 0.46fr;
+    grid-template-rows: 0.64fr 0.36fr;
     gap: 0px 0px;
     position: relative;
     top: 0;
     left: 0;
-    height: 300px;
-    width: 100%;
     grid-auto-flow: row;
     grid-template-areas:
-      "Wellbeing-Circle Wellbeing-Circle Percentage-Scores"
-      "Wellbeing-Circle Wellbeing-Circle Work-Total"
-      "Wellbeing-Circle Wellbeing-Circle Work-Total";
+      "wellbeing Percentage-Scores"
+      "wellbeing Work-Total";
   }
   
   .Wellbeing-Circle { grid-area: Wellbeing-Circle; }
   
   .Percentage-Scores { 
     grid-area: Percentage-Scores; 
-    background: linear-gradient(300deg, rgb(250, 118, 222) 2%, rgb(104, 165, 221) 110.6%);
-    border-radius: 25px; 
+    background: linear-gradient(124.58deg, rgba(200, 12, 158) -11.8%, rgba(0, 122, 255) 135.63%);
+    border-radius: 10px; 
+    display: flex;
+    flex-direction: column;
     margin-bottom: 5px;
     padding-top: 10px;
     text-align: center;
@@ -152,8 +151,8 @@ button.active {
   
   .Work-Total { 
     grid-area: Work-Total; 
-    background: linear-gradient(300deg, rgb(250, 118, 222) 2%, rgb(104, 165, 221) 110.6%);
-    border-radius: 25px; 
+    background: linear-gradient(124.58deg, rgba(200, 12, 158) -11.8%, rgba(0, 122, 255) 135.63%);
+    border-radius: 10px; 
     text-align: center;
     padding-top: 10px;
    }
@@ -168,7 +167,7 @@ button.active {
      margin: 0 auto;
      position: relative;
      left: 145px;
-     color: #9908f3;
+     color: rgba(0, 125, 241)
   }
   
     .outerCircle {
