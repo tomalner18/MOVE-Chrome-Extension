@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Suggested Activities</title>
+  <title>Take a break!</title>
 
   <!-- Stylesheets -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -14,7 +14,6 @@
 </head>
 
 <body>
-
   <!-- TopBar -->
   <div class="nav-container">
     <button id="exercise-btn">
@@ -26,51 +25,117 @@
     <button id="motivation-btn">
       Motivation
     </button>
+    <button id="time">
+      00:00
+    </button>
   </div>
 
   <!-- Landing-Page -->
   <div id="landing-page" class="tab landing-page">
-    <div class="page-header">
-      It's your break!
-    </div>
-    <br></br>
-    <p style="font-size:20px">You can schedule a new session to start immediately after your break</p>
-    <div class="page-content">
-      <button id="schedule-btn">Schedule</button>
+    <div align="center">
+      <div class="page-header">
+        Break time!
+      </div>
+      <br>
+      <p style="font-size:20px">You can schedule a new session to start immediately after your break.</p>
+      </br>
+      <div class="page-content">
+        <div class="session-field center">
+          <label>Choose a study duration:
+            <input id="study-time" type="number" min="5" max="120" value="45" /></label>
+        </div>
+        <div class="session-field center">
+          <label>Choose a break duration:
+            <input id="break-time" type="number" min="5" max="120" value="10" /></label>
+        </div>
+  
+        <button id='create-solo' class='session-button' value='Create'>Create</button>
+        <button id='cancelAlarm' class='session-button red-button'>Cancel Alarm</button>
+      </div>
     </div>
   </div>
 
+  <!---------------------------------------------------------------------------->
   <!-- Exercise-Page -->
   <div id="exercise-page" class="tab exercise-page" style="display:none">
     <div class="page-content">
-      <button id="exercise-back">Back</button>
+
+      <br>
+
+      <div align="center">
+        <button id="exercise-back" class="button0">Back</button>
+        <br>
+        <br>
+        <p style="font-size:20px">Here's a short exercise to help you stay active! :)</p>
+      </div>
+
+      
+      
+      <!-- this div will be injected some HTML code via a script -->
+      <div class="single_exercise_video"></div>
+
+      <div align="center">
+        <button id="more-exercise-videos" class="button">More videos</button>
+        <br>
+        <br>
+      </div>
+      
+
     </div>
   </div>
 
+  <!---------------------------------------------------------------------------->
+  <!-- More Exercise Page -->
+  <div id="more-exercise-page" class="tab more-exercise-page" style="display:none">
+    <div class="page-content">
+      <div align="center">
+        <br>
+        <button id="more-exercise-back" class="button0">Back</button>
+      </div>
+      
+      <!-- this div will be injected some HTML code via a script -->
+      <div class="more-exercise-videos"></div>
+
+    </div>
+  </div>
+
+  <!---------------------------------------------------------------------------->
   <!-- Relax -->
   <div id="relax-page" class="tab relax-page" style="display:none">
-    <p style="font-size:20px">Our Tip!</p>
-    <br></br>
-    <button id="relax-back">Back</button>
-    <div id="output-activity">Press the button to generate an activity and try to relax!</div>
-    <br></br>
-    <button id="activity">New Activity!</button>
-  </div>
-
-  <!-- Motivation-Page -->
-  <div id="motivation-page" class="tab motivation-page" style="display:none">
-    <div class="page-content">
-      <p style="font-size:20px">Think about the meaning behind the quote...</p>
+    <div align="center">
+      <br>
+      <button id="relax-back" class="button0">Back</button>
+      <br>
+      <br>
+      <p style="font-size:20px">Here's a tip to help you relax! :)</p>
+      <br>
+      <div id="output-activity"><h2></h2></div>
       <br></br>
-      <button id="motivation-back">Back</button>
-      <div id="output-quote">Press the button to generate a Quote!</div>
-      <br></br>
-      <button id="quote">New Quote!</button>
+      <button id="activity" class="button0">Get a relaxing tip</button>
     </div>
   </div>
 
+  <!---------------------------------------------------------------------------->
+  <!-- Motivation-Page -->
+  <div id="motivation-page" class="tab motivation-page" style="display:none">
+    <div align="center">
+      <br>
+      <button id="motivation-back" class="button0">Back</button>
+      <br>
+      <br>
+      <p style="font-size:20px">Here's a motivational quote to keep you going! :)</p>
+      <br>        
+      <div id="output-quote" ></div>
+      <br>
+      <button id="quote" class="button0">Get a quote</button>
+    </div>
+  </div>
+
+  <!---------------------------------------------------------------------------->
   <!-- Scripts: -->
-  <script src="break.js"></script>
+  <script type="module" src="bundles/break_bundle.js"></script>
+  <script src="countdown.js"></script>
+
 </body>
 
 </html>

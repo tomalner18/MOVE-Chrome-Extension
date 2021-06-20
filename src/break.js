@@ -1,41 +1,23 @@
-var quotes = ["Education is the passport to the future, for tomorrow belongs to those who prepare for it today. — Malcolm X",
-  "Teachers can open the door, but you must enter it yourself. — Chinese proverb",
-  "The beautiful thing about learning is that no one can take it away from you. —B.B. King",
-  "Don’t let what you cannot do interfere with what you can do. — John Wooden",
-  "A person who never made a mistake never tried anything new. — Albert Einstein",
-  "Learning is never done without errors and defeat. – Vladimir Lenin",
-  "Never let the fear of striking out stop you from playing the game. — Babe Ruth",
-  "Procrastination makes easy things hard and hard things harder. — Mason Cooley",
-  "You don’t have to be great to start, but you have to start to be great. – Zig Ziglar",
-  "I find that the harder I work, the more luck I seem to have. – Thomas Jefferson",
-  "Genius is 10% inspiration, 90% perspiration. — Thomas Edison",
-  "Success is the sum of small efforts, repeated. — R Collier",
-  "Ambition is the path to success. Persistence is the vehicle you arrive in. —Bill Bradley",
-  "A man’s worth is no greater than his ambitions. —Marcus Aurelius",
-  "Believe it can be done. When you believe something can be done, really believe, your mind will find the ways to do it. Believing a solution paves the way to solution. —David Joseph Schwartz"];
+import break_content from "./break_content";
+import instagram_embed from "./instagram_embed";
 
-var activities = ["Drink some water", "Grab a snack", "Go for a walk", "Go for a run",
-  "Try to scribble/draw/paint something", "Take a few deep breaths", "Meditate", "Relax to music",
-  "Close your eyes and think about your favourite place", "Bond with your pet", "Cook something",
-  "Read two pages from your favourite novel", "Take a power nap", "Play your favourite instrument"];
-
-function newQuote(){
-  var rand = quotes[Math.floor(Math.random() * (quotes.length))];
+function newQuote() {
+  var rand = break_content.quotes[Math.floor(Math.random() * (break_content.quotes.length))];
   document.getElementById('output-quote').innerHTML = rand;
   document.getElementById('output-quote').style.fontWeight = 'bold';
   document.getElementById('output-quote').style.fontStyle = 'italic';
-  document.getElementById('output-quote').style.fontSize= "25px";
+  document.getElementById('output-quote').style.fontSize = "25px";
   document.getElementById('output-quote').style.textAlign = "center";
   //document.getElementById('home-page').style.backgroundImage = "url('https://i.ytimg.com/vi/ysuUmpovJBE/maxresdefault.jpg')";
 }
 
-function newActivity(){
-  var rand = activities[Math.floor(Math.random() * (activities.length))];
+function newActivity() {
+  var rand = break_content.activities[Math.floor(Math.random() * (break_content.activities.length))];
   document.getElementById('output-activity').innerHTML = rand;
   document.getElementById('output-activity').style.fontWeight = 'bold';
   document.getElementById('output-activity').style.fontStyle = 'italic';
   document.getElementById('output-activity').style.textAlign = "center";
-  document.getElementById('output-activity').style.fontSize="25px";
+  document.getElementById('output-activity').style.fontSize = "25px";
 }
 
 function clearTabs() {
@@ -48,7 +30,7 @@ function clearTabs() {
 
 function clearNav() {
   var x = document.getElementsByClassName("active");
-  if(x.length != 0) {
+  if (x.length != 0) {
     x[0].classList.remove("active");
   }
 }
@@ -63,6 +45,14 @@ function openExercise() {
   clearNav();
   clearTabs();
   document.getElementById("exercise-page").style.display = "grid";
+  var y = document.getElementById("exercise-btn");
+  y.classList.add("active")
+}
+
+function openMoreExercises() {
+  clearNav();
+  clearTabs();
+  document.getElementById("more-exercise-page").style.display = "grid";
   var y = document.getElementById("exercise-btn");
   y.classList.add("active")
 }
@@ -93,9 +83,90 @@ function iniBacks() {
   document.getElementById("exercise-back").addEventListener('click', openLanding);
   document.getElementById("relax-back").addEventListener('click', openLanding);
   document.getElementById("motivation-back").addEventListener('click', openLanding);
+  document.getElementById("more-exercise-back").addEventListener('click', openExercise);
 }
 
-  iniBreakNav();
-  iniBacks();
-  document.getElementById('quote').addEventListener('click', newQuote);
-  document.getElementById('activity').addEventListener('click', newActivity);
+function iniMoreExercise() {
+  document.getElementById("more-exercise-videos").addEventListener('click', openMoreExercises);
+}
+
+function obtainExerciseVideo() {
+  const randomInt = Math.floor(Math.random() * break_content.exercise_videos.length);
+  var video = break_content.exercise_videos[randomInt];
+
+  return video;
+}
+
+function embedExerciseVideos() {
+
+  var videos = [];
+  var i;
+  for (i = 0; i < 4; i++) {
+    videos.push(obtainExerciseVideo());
+  }
+
+  fetch("./single_exercise.html")
+    .then(response => {
+      return response.text()
+    })
+    .then(data => {
+      document.querySelector(".single_exercise_video").innerHTML = data;
+    })
+
+  fetch("./more_exercises.html")
+    .then(response => {
+      return response.text()
+    })
+    .then(data => {
+      document.querySelector(".more-exercise-videos").innerHTML = data;
+
+      const blockquote_tags = document.querySelectorAll(".instagram-media");
+      const hyperlink_tags = document.querySelectorAll(".instagram-media-2");
+      const headers = document.querySelectorAll(".video_title");
+
+      for (i = 0; i < 4; i++) {
+
+        var video = videos[i];
+
+        const url = video.filePath + "?utm_source=ig_embed&amp;utm_campaign=loading";
+        blockquote_tags[i].setAttribute("data-instgrm-permalink", url);
+        hyperlink_tags[i].href = url;
+        headers[i].textContent = video.title;
+
+        instagram_embed.embed();
+      }
+    })
+}
+
+iniBreakNav();
+iniBacks();
+iniMoreExercise();
+
+embedExerciseVideos();
+
+document.getElementById('quote').addEventListener('click', newQuote);
+document.getElementById('activity').addEventListener('click', newActivity);
+
+function startTimer(duration, display) {
+  var timer = duration, minutes, seconds;
+  setInterval(function () {
+      minutes = parseInt(timer / 60, 10);
+      seconds = parseInt(timer % 60, 10);
+
+      minutes = minutes < 10 ? "0" + minutes : minutes;
+      seconds = seconds < 10 ? "0" + seconds : seconds;
+
+      display.textContent = minutes + ":" + seconds;
+
+      if (--timer < 0) {
+          timer = duration;
+      }
+  }, 1000);
+}
+
+window.onload = function () {
+  var fiveMinutes = 60 * 5,
+      display = document.querySelector('#time');
+      chrome.extension.getBackgroundPage().console.log(display.textContent);
+  startTimer(fiveMinutes, display);
+};

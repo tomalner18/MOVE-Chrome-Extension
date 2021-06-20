@@ -13,8 +13,11 @@ var default_config = {
   snooze_enabled: true
 }
 
+chrome.browserAction.setBadgeText({text: 'OFF'});
+chrome.browserAction.setBadgeBackgroundColor({color: 'red'})
+
 // Creates a Chrome Notification
-function createNotification() {
+function notifyFinish() {
   chrome.notifications.create(`move-notification-${Date.now()}`, {
     type: "basic",
     iconUrl: "icons/logo48.png",
@@ -32,21 +35,87 @@ function createNotification() {
   }
 
 chrome.alarms.onAlarm.addListener(function() {
-  chrome.browserAction.setBadgeText({text: ''});
-  chrome.notifications.create(`my-notification-${Date.now()}`,{
-      type:     'basic',
-      iconUrl:  'icons/logo48.png',
-      requireInteraction: true,
-      title:    'Study Break!',
-      message:  'It has come to the end of this study period, please take a break!',
-      buttons: [
-        {title: 'Exercises'},
-        {title: 'Other'}
-      ],
-      priority: 0}, function(id) {
-        myNotificationID = id;
-      });
-      playSound();
+  chrome.extension.getBackgroundPage().console.log("hi");
+  chrome.storage.local.get(['pausetime', 'timer', 'break'], function(result) {
+    chrome.extension.getBackgroundPage().console.log('Value currently is ' + result.pausetime);
+    chrome.extension.getBackgroundPage().console.log('Value currently is ' + result.timer);
+
+    if (result.timer && !result.break) {
+      chrome.notifications.create(`my-notification-${Date.now()}`,{
+        type:     'basic',
+        iconUrl:  'icons/logo48.png',
+        requireInteraction: true,
+        title:    'Study Break!',
+        message:  'It has come to the end of this study period, please take a break!',
+        buttons: [
+          {title: 'Take a break'}
+        ],
+        priority: 0}, function(id) {
+          myNotificationID = id;
+        });
+        playSound();
+        chrome.browserAction.setBadgeText({text: 'BRK'});
+        chrome.browserAction.setBadgeBackgroundColor({color: 'blue'})
+
+        chrome.storage.local.set({timer: false, break: true} , function (){
+          console.log("Storage Succesful");});
+          let endtime = Date.now() + 1000 * 60 * result.pausetime
+          chrome.storage.local.set({timerend: endtime}, function(){
+            chrome.alarms.create("break", {when: endtime});
+          });
+          playSound();         
+
+    } else {
+      
+      
+      if(!result.timer) {
+        chrome.storage.local.set({timer: false, break: true} , function () {
+          console.log("End of break");
+        });
+        chrome.browserAction.setBadgeText({text: 'OFF'});
+        chrome.browserAction.setBadgeBackgroundColor({color: 'red'})
+        chrome.notifications.create(`my-notification-${Date.now()}`,{
+          type:     'basic',
+          iconUrl:  'icons/logo48.png',
+          requireInteraction: true,
+          title:    'End of Study Break',
+          message:  'It has come to the end of this break period, you are advised to resume working!',
+          buttons: [
+            {title: 'Okay'}
+          ],
+          priority: 0}, function(id) {
+            myNotificationID = id + 1;
+          });
+          var sound = new Audio('./mixkit-positive-notification-951.wav')
+            sound.play();
+      } else {
+        chrome.storage.local.set({timer: true, break: false} , function () {
+          console.log("End of break");
+        });
+        chrome.browserAction.setBadgeText({text: 'ON'});
+        chrome.browserAction.setBadgeBackgroundColor({color: 'green'})
+        chrome.notifications.create(`my-notification-${Date.now()}`,{
+          type:     'basic',
+          iconUrl:  'icons/logo48.png',
+          requireInteraction: true,
+          title:    'End of Study Break',
+          message:  'Resume working!',
+          buttons: [
+            {title: 'Okay'}
+          ],
+          priority: 0}, function(id) {
+            myNotificationID = id + 1;
+          });
+          var sound = new Audio('./mixkit-positive-notification-951.wav')
+            sound.play();
+
+      }
+
+      
+    }
+  });
+  
+ 
 });
 
 function playSound() {
@@ -57,15 +126,13 @@ function playSound() {
 
 chrome.notifications.onButtonClicked.addListener(function(notifId, btnIdx) {
     if (notifId === myNotificationID) {
-        if (btnIdx === 0) {
-          window.open("exercise.html");
-        } else if (btnIdx === 1) {
-          chrome.windows.create({
-            url: "break.html",
-            type: "popup",
-            width: 436,  /*Add 16 to desired size? */
-            height: 300
-          })
-        }
+      if (btnIdx === 0) {
+        chrome.windows.create({
+          url: "break.html",
+          type: "popup",
+          width: 436,  /*Add 16 to desired size? */
+          height: 300
+        })
+      } 
     }
 });

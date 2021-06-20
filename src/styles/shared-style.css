@@ -47,4 +47,90 @@ button {
     outline: none;
 }
 
+/* Schedule */
+
+.home-page, #stat-page {
+  margin: 5px;
+  display: grid;
+}
+
+.session-field {
+  margin-top: 10px;
+  margin-left: 25px;
+  margin-bottom: 10px;
+  color: #6400A2;
+}
+
+input {
+  margin-left: 20px;
+  background-color: #9908f3;
+  color: white;
+  height: 60px;
+  width: 100px;
+  text-align: center;
+  padding-right: 0px !important;
+  font-size: 30px;
+  border: none;
+  mix-blend-mode: normal;
+  box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.25);
+}
+
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  height: 70px;
+  margin-right: 0px;
+  opacity: 1;
+  background-color: red;
+}
+.center {
+  margin: auto;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  }
+
+.session-button {
+    background-color: #ddd;
+    border: none;
+    color: black;
+    padding: 10px 20px;
+    margin-left: auto;
+    margin-right: 5%;
+    margin-top: 50px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    border-radius: 16px;
+    width: 30%;
+    color: white;
+    font-weight: bold;
+    background: linear-gradient(135deg, rgba(200, 12, 158) 2%, rgba(0, 125, 241) 110.6%);
+    box-shadow: 0 3px #999;
+
+}
+
+.session-button:hover {
+  background: linear-gradient(135deg, rgb(143, 6, 113) 2%, rgb(7, 79, 146) 110.6%);
+}
+
+.session-button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+.red-button
+{
+    margin-top: 20px;
+    background: red;
+} 
+
+.red-button:hover{
+  background: darkred;
+}
+
+
+
+
 
