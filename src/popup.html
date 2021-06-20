@@ -1,106 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Timer Popup</title>
 
-    <!-- Stylesheets -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Timer Popup</title>
 
-  </head>
-  <body>
+  <!-- Stylesheets -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="styles/shared-style.css">
+  <link rel="stylesheet" href="styles/study-style.css">
+</head>
 
-    <!-- TopBar -->
-    <div class="nav-container">
-      <button id="home-btn" class="active">
-        <img src="icons/home_white_36dp.svg" alt="">
+<body>
+
+  <!-- TopBar -->
+  <div class="nav-container">
+    <button id="home-btn" class="active">
+      <img src="icons/home_white_36dp.svg" alt="">
+    </button>
+    <button id="stat-btn">
+      <img src="icons/trending_up_white_36dp.svg" alt="">
+    </button>
+    <button id="calendar-btn">
+      <img src="icons/today_white_36dp.svg" alt="">
+    </button>
+    <button id="social-btn">
+      <img src="icons/people_white_36dp.svg" alt="">
+    </button>
+    <div class="nav-right">
+      <button id="more-btn">
+        <img src="icons/more_horiz_white_36dp.svg" alt="">
       </button>
-      <button id="stat-btn">
-        <img src="icons/trending_up_white_36dp.svg" alt="">
-      </button>
-      <button id="calendar-btn">
-        <img src="icons/today_white_36dp.svg" alt="">
-      </button>
-      <button id="social-btn">
-        <img src="icons/people_white_36dp.svg" alt="">
-      </button>
-      <div class="nav-right">
-        <button id="more-btn">
-          <img src="icons/more_horiz_white_36dp.svg" alt="">
-        </button>
-      </div>
     </div>
+  </div>
 
-    <!-- Home-Page -->
-    <div id="home-page" class="tab home-page">
-      <div class="page-header">
-        Create a work session
-      </div>
-      <div class="page-content">
-        <div class="session-field center">
-          <label>Choose a study duration:
-            <input id="study-time" type="number" min="5" max="120" value="45" /></label>
-        </div>
-        <div class ="session-field center">
-          <label>Choose a break duration:
-            <input id="break-time" type="number" min="5" max="120" value="10" /></label>
-        </div>
-
-        <button id='create-solo' class='session-button' value='Create'>Create</button>
-        <button id='cancelAlarm' class='session-button red-button'>Cancel Alarm</button>
-      </div>
+  <!-- Home-Page -->
+  <div id="home-page" class="tab home-page">
+    <div class="page-header">
+      Create a work session
     </div>
+    <div class="page-content">
+      <div class="session-field center">
+        <label>Choose a study duration:
+          <input id="study-time" type="number" min="5" max="120" value="45" />
+          &nbsp; minutes
+        </label>
+      </div>
+      <div class="session-field center">
+        <label>Choose a break duration:
+          <input id="break-time" type="number" min="5" max="120" value="10" />
+          &nbsp; minutes
+        </label>
+      </div>
 
-    <!-- Stat-Page -->
-    <div id="stat-page" class="tab" style="display:none">
-      <div id="stat-page-content" class="tab home-page"></div>
-      <div class="container">
-        <div class="Wellbeing-Circle">
-          <div class="page-header current-wellbeing">
-            Current Wellbeing
-            <div class="wellbeing">
-              <div class="outerCircle"></div>
-              <div class="innerCircle"></div>
-              <p class="icon">98%</p>
-              <div class="tooltip">Stats info
-                <span class="tooltiptext">Your wellbeing score is calculated by determining the percentage of scheduled sessions you are able to complete combined with the number of break exercises you successfully complete too.</span>
-              </div>
+      <button id='create-solo' class='session-button' value='Create'>Create</button>
+      <button id='cancelAlarm' class='session-button red-button'>Cancel Work Session</button>
+    </div>
+  </div>
+
+  <!-- Stat-Page -->
+  <div id="stat-page" class="tab" style="display:none">
+    <div id="stat-page-content" class="tab home-page"></div>
+    <div class="container">
+      <div class="Wellbeing-Circle">
+        <div class="page-header current-wellbeing">
+          Current Wellbeing
+          <div class="wellbeing">
+            <div class="outerCircle"></div>
+            <div class="innerCircle"></div>
+            <p class="icon">98%</p>
+            <div class="tooltip">Stats info
+              <span class="tooltiptext">Your wellbeing score is calculated by determining the percentage of scheduled
+                sessions you are able to complete combined with the number of break exercises you successfully complete
+                too.</span>
             </div>
           </div>
         </div>
-        <div class="Percentage-Scores">
-          <p class="Percentage-value">Consistency</p>
-          <p class="Percentage-value">Productivity</p>
-          <p class="Percentage-value">Mood</p>
-        </div>
-        <div class="Work-Total">
-          
-          Daily Work Total</div>
       </div>
-    </div>
+      <div class="Percentage-Scores">
+        <p class="Percentage-value">Consistency</p>
+        <p class="Percentage-value">Productivity</p>
+        <p class="Percentage-value">Mood</p>
+      </div>
+      <div class="Work-Total">
 
-    <!-- Calendar-Page -->
-    <div id="calendar-page" class="tab" style="display:none">
-      <a id='cal-link' href="https://moveimperial.herokuapp.com/" target="_blank">
-      <button  id='viewCalendar' class="session-button">View Calendar</button></a>
+        Daily Work Total</div>
     </div>
+  </div>
 
-    <!-- Social-Page -->
-    <div id="social-page" class="tab" style="display:none">
-      <a id='cal-link' href="https://moveimperial.herokuapp.com/" target="_blank">
-        <button  id='viewGroups' class="session-button">View Groups</button></a>
-    </div>
+  <!-- Calendar-Page -->
+  <div id="calendar-page" class="tab" style="display:none">
+    <a id='cal-link' href="https://moveimperial.herokuapp.com/" target="_blank">
+      <button id='viewCalendar' class="session-button">View Calendar</button></a>
+  </div>
 
-    <!-- More-Page -->
-    <div id="more-page" class="tab" style="display:none">
-      <button id='view-more'>View More</button>
-    </div>
+  <!-- Social-Page -->
+  <div id="social-page" class="tab" style="display:none">
+    <a id='cal-link' href="https://moveimperial.herokuapp.com/" target="_blank">
+      <button id='viewGroups' class="session-button">View Groups</button></a>
+  </div>
 
-    <!-- Scripts: -->
-    <script src="popup.js"></script>
-  </body>
+  <!-- More-Page -->
+  <div id="more-page" class="tab" style="display:none">
+    <button id='view-more'>View More</button>
+  </div>
+
+  <!-- Scripts: -->
+  <script src="popup.js"></script>
+</body>
+
 </html>
