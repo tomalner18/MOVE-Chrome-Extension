@@ -86,7 +86,7 @@ button.active {
   top: 0;
   left: 0;
   grid-auto-flow: row;
-  grid-template-areas: "wellbeing Percentage-Scores" "wellbeing Work-Total";
+  grid-template-areas: "wellbeing Percentage-Scores" "wellbeing work-total";
 }
 
 .Wellbeing-Circle {
@@ -132,24 +132,21 @@ button.active {
   -webkit-animation: spinoffPulse 3s infinite linear;
 }
 
+/* Percentage Stats */
+
 .Percentage-Scores {
   grid-area: Percentage-Scores;
-  display: grid;
   background: linear-gradient(124.58deg, rgba(200, 12, 158) -11.8%, rgba(0, 122, 255) 135.63%);
   border-radius: 10px;
   display: flex;
   flex-direction: column;
   margin-bottom: 5px;
   color: #fff;
-  grid-template-areas: "consistency" "productivity" "mood";
-  grid-template-columns: 1fr 1fr 1fr
 }
 
 .stat-score {
   display: grid;
-  grid-template-areas: "icon stat-box info";
-  grid-auto-flow: column;
-  grid-template-columns: 2fr 7fr 1fr;
+  grid-template-columns: 20% 70% 10%;
   margin: 5px 10px 5px 10px;
 }
 
@@ -161,29 +158,99 @@ button.active {
   margin-top: 10px;
 }
 
-
 .stat-box {
   float: left;
 }
 
 .stat-box .title {
   font-size: 17px;
+  letter-spacing: 1px
 }
 
 .stat-box .value {
   font-size: 22px;
   font-weight: bold;
+  letter-spacing: 1px;
 }
 
+/* Info-Tip */
 
+.infotip {
+  overflow: visible;
+  position: absolute;
+  display: inline-block;
+  visibility: hidden;
+  right: 5px;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  font-size: xx-small;
+  padding: 5px 0;
+  border-radius: 6px;
+  /* Position the tooltip text - see examples below! */
+  z-index: 1;
+}
 
-.Work-Total {
-  grid-area: Work-Total;
+.infotip::after {
+  content: " ";
+  position: absolute;
+  bottom: 100%;
+  /* At the bottom of the tooltip */
+  right: 6%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent black transparent;
+  transform: translateX(-50%);
+}
+
+.info:hover + .infotip {
+  visibility: visible;
+}
+
+.con-tip {
+  top: 40px;
+}
+
+.pro-tip {
+  top: 102px;
+}
+
+.mood-tip {
+  top: 164px;
+}
+
+/* Work-Total */
+
+.work-total {
+  grid-area: work-total;
   background: linear-gradient(124.58deg, rgba(200, 12, 158) -11.8%, rgba(0, 122, 255) 135.63%);
   border-radius: 10px;
-  text-align: center;
-  padding-top: 10px;
+  padding: 10px 10px 10px 12px;
+  color: white;
 }
+
+.work-total .title {
+  font-size: 17px;
+  letter-spacing: 1px;
+  opacity: 0.95;
+}
+
+.work-total .value-box {
+  padding: 0px 0px 0px 10px;
+}
+
+.work-total .value-box .value {
+  font-size: 36px;
+  font-weight: 800;
+}
+
+.work-total .past {
+  opacity: 0.6;
+  padding-left: 10px;
+}
+
 
 #viewCalendar, #viewGroups {
   width: 100%;
