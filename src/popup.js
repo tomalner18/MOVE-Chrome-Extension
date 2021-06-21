@@ -37,6 +37,15 @@ function openHome() {
   y.classList.add("active")
 }
 
+function openWorkingHome() {
+  var x = document.getElementsByClassName("active");
+  x[0].classList.remove("active");
+  clearTabs();
+  document.getElementById("home-page-when-working").style.display = "grid";
+  var y = document.getElementById("home-btn");
+  y.classList.add("active")
+}
+
 function openStat() {
   var x = document.getElementsByClassName("active");
   x[0].classList.remove("active");
@@ -74,15 +83,35 @@ function openMore() {
 }
 
 function iniNav() {
-  document.getElementById('home-btn').addEventListener('click', openHome);
+
+  chrome.storage.local.get("timer", function (result) {
+    if (result.timer) {
+      document.getElementById('home-btn').addEventListener('click', openWorkingHome);
+    } else {
+      document.getElementById('home-btn').addEventListener('click', openHome);
+    }
+  });
+
   document.getElementById('stat-btn').addEventListener('click', openStat);
   document.getElementById('calendar-btn').addEventListener('click', openCalendar);
   document.getElementById('social-btn').addEventListener('click', openSocial);
   document.getElementById('more-btn').addEventListener('click', openMore);
 }
+
+function displayWorkingHomePage() {
+  document.getElementById("home-page").style.display = "none";
+  document.getElementById("home-page-when-working").style.display = "grid";
+}
   
 //An Alarm delay of less than the minimum 1 minute will fire
 // in approximately 1 minute incriments if released
-  iniNav();
-  document.getElementById('create-solo').addEventListener('click', setAlarm);
-  document.getElementById('cancelAlarm').addEventListener('click', clearAlarm);
+iniNav();
+document.getElementById('create-solo').addEventListener('click', setAlarm);
+document.getElementById('cancelAlarm').addEventListener('click', clearAlarm);
+
+// if the user is currently in the middle of a work session, then the default page of the popup should be the home-page-when-working one.
+chrome.storage.local.get("timer", function (result) {
+  if (result.timer) {
+    displayWorkingHomePage();
+  }
+});
