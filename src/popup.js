@@ -1,15 +1,37 @@
 function setAlarm() {
-    let minutes = parseFloat(document.getElementById("study-time").value);
-    let pause = parseFloat(document.getElementById("break-time").value);
-    chrome.storage.local.set({'pausetime': pause}, function (){
-      console.log("Storage Succesful");
+  let minutes = parseFloat(document.getElementById("study-time").value);
+  let pause = parseFloat(document.getElementById("break-time").value);
+  chrome.storage.local.set({'pausetime': pause}, function (){
+    console.log("Storage Succesful");
   });
-    chrome.storage.local.set({timer: true, break: false});
-    chrome.browserAction.setBadgeText({text: 'ON'});
-    chrome.browserAction.setBadgeBackgroundColor({color: 'green'})
-    chrome.alarms.create({when: Date.now() + 1000 * 60 * minutes});
-    chrome.storage.local.set({minutes: minutes});
-    window.close();
+  chrome.storage.local.set({timer: true, break: false});
+  chrome.browserAction.setBadgeText({text: 'ON'});
+  chrome.browserAction.setBadgeBackgroundColor({color: 'green'})
+  chrome.alarms.create({when: Date.now() + 1000 * 60 * minutes});
+  var endtime = Date.now() + 1000 * 60 * minutes;
+  chrome.storage.local.set({minutes: minutes, endtime: endtime});
+  window.close();
+}
+
+// same implementation as the one in countdown.js
+function startTimer(duration, display) {
+  var timer = duration; 
+  var minutes; 
+  var seconds;
+  var id = setInterval(function () {
+      minutes = parseInt(timer / 60, 10);
+      seconds = parseInt(timer % 60, 10);
+
+      minutes = minutes < 10 ? "0" + minutes : minutes;
+      seconds = seconds < 10 ? "0" + seconds : seconds;
+
+      display.textContent = minutes + " mins " + seconds + " s to next break.";
+
+      if (--timer < 0) {
+          timer = duration;
+          clearInterval(id);
+      }
+  }, 1000);
 }
   
 function clearAlarm() {
@@ -101,6 +123,9 @@ function iniNav() {
 function displayWorkingHomePage() {
   document.getElementById("home-page").style.display = "none";
   document.getElementById("home-page-when-working").style.display = "grid";
+
+  chrome.extension.getBackgroundPage().console.log("just opened working home page:");
+  chrome.extension.getBackgroundPage.console.log(document.querySelector('#countdown'));
 }
   
 //An Alarm delay of less than the minimum 1 minute will fire
@@ -108,6 +133,7 @@ function displayWorkingHomePage() {
 iniNav();
 document.getElementById('create-solo').addEventListener('click', setAlarm);
 document.getElementById('cancelAlarm').addEventListener('click', clearAlarm);
+document.getElementById('cancelAlarm2').addEventListener('click', clearAlarm);
 
 // if the user is currently in the middle of a work session, then the default page of the popup should be the home-page-when-working one.
 chrome.storage.local.get("timer", function (result) {
@@ -115,3 +141,15 @@ chrome.storage.local.get("timer", function (result) {
     displayWorkingHomePage();
   }
 });
+
+// starting the countdown when the user has just started a work session.
+window.onload = function () {
+  chrome.storage.local.get(["timer", "endtime"], function (result) {
+    if (result.timer) {
+      var display = document.querySelector('#countdown');
+      var end = (result.endtime - Date.now())/1000;
+
+      startTimer(end, display);
+    }
+  });
+};
