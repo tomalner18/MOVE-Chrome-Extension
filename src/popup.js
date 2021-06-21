@@ -4,7 +4,7 @@ function setAlarm() {
   chrome.storage.local.set({'pausetime': pause}, function (){
     console.log("Storage Succesful");
   });
-  chrome.storage.local.set({timer: true, break: false});
+  chrome.storage.local.set({timer: true, break: false, paused: false});
   chrome.browserAction.setBadgeText({text: 'ON'});
   chrome.browserAction.setBadgeBackgroundColor({color: 'green'})
   chrome.alarms.create({when: Date.now() + 1000 * 60 * minutes});
@@ -13,12 +13,15 @@ function setAlarm() {
   window.close();
 }
 
+// a global variable to start & stop countdowns.
+var countdown_id;
+
 // same implementation as the one in countdown.js
 function startTimer(duration, display) {
   var timer = duration; 
   var minutes; 
   var seconds;
-  var id = setInterval(function () {
+  countdown_id = setInterval(function () {
       minutes = parseInt(timer / 60, 10);
       seconds = parseInt(timer % 60, 10);
 
@@ -29,7 +32,7 @@ function startTimer(duration, display) {
 
       if (--timer < 0) {
           timer = duration;
-          clearInterval(id);
+          clearInterval(countdown_id);
       }
   }, 1000);
 }
@@ -40,6 +43,24 @@ function clearAlarm() {
     chrome.storage.local.set({timer: false} , function (){
       console.log("Storage Succesful");});
     window.close();
+}
+
+function pauseAlarm() {
+  chrome.storage.local.get(["endtime"], function(result) {
+    var durationLeft = (result.endtime - Date.now())/1000;
+    chrome.storage.local.set({durationLeft: durationLeft, paused: true}, function() {
+      console.log("Storage Succesful");
+
+      // stop the countdown and freeze it.
+      clearInterval(countdown_id);
+      chrome.alarms.clearAll();
+    });    
+  });
+}
+
+// continue from a paused alarm.
+function continueAlarm() {
+
 }
 
 function clearTabs() {
@@ -124,8 +145,19 @@ function displayWorkingHomePage() {
   document.getElementById("home-page").style.display = "none";
   document.getElementById("home-page-when-working").style.display = "grid";
 
-  chrome.extension.getBackgroundPage().console.log("just opened working home page:");
-  chrome.extension.getBackgroundPage.console.log(document.querySelector('#countdown'));
+  // if paused, then I want to show the paused duration left:
+  chrome.storage.local.get(["paused", "durationLeft"], function(result) {
+    if (result.paused) {
+      minutes = parseInt(result.durationLeft / 60, 10);
+      seconds = parseInt(result.durationLeft % 60, 10);
+  
+      minutes = minutes < 10 ? "0" + minutes : minutes;
+      seconds = seconds < 10 ? "0" + seconds : seconds;
+      
+      var display = document.querySelector('#countdown');
+      display.textContent = minutes + " mins " + seconds + " s to next break.";
+    }    
+  })
 }
   
 //An Alarm delay of less than the minimum 1 minute will fire
@@ -134,6 +166,7 @@ iniNav();
 document.getElementById('create-solo').addEventListener('click', setAlarm);
 document.getElementById('cancelAlarm').addEventListener('click', clearAlarm);
 document.getElementById('cancelAlarm2').addEventListener('click', clearAlarm);
+document.getElementById('pause').addEventListener('click', pauseAlarm);
 
 // if the user is currently in the middle of a work session, then the default page of the popup should be the home-page-when-working one.
 chrome.storage.local.get("timer", function (result) {
@@ -144,8 +177,8 @@ chrome.storage.local.get("timer", function (result) {
 
 // starting the countdown when the user has just started a work session.
 window.onload = function () {
-  chrome.storage.local.get(["timer", "endtime"], function (result) {
-    if (result.timer) {
+  chrome.storage.local.get(["timer", "endtime", "paused"], function (result) {
+    if (result.timer && !result.paused) {
       var display = document.querySelector('#countdown');
       var end = (result.endtime - Date.now())/1000;
 
