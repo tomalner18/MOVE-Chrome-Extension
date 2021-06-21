@@ -134,32 +134,48 @@ button.active {
 
 .Percentage-Scores {
   grid-area: Percentage-Scores;
+  display: grid;
   background: linear-gradient(124.58deg, rgba(200, 12, 158) -11.8%, rgba(0, 122, 255) 135.63%);
   border-radius: 10px;
   display: flex;
   flex-direction: column;
   margin-bottom: 5px;
-  padding-top: 10px;
-  color: #fff
+  color: #fff;
+  grid-template-areas: "consistency" "productivity" "mood";
+  grid-template-columns: 1fr 1fr 1fr
 }
 
 .stat-score {
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-areas: "icon stat-box info";
+  grid-auto-flow: column;
+  grid-template-columns: 2fr 7fr 1fr;
+  margin: 5px 10px 5px 10px;
 }
+
+.stat-score .icon {
+  margin-top: 10px;
+}
+
+.stat-score .info {
+  margin-top: 10px;
+}
+
 
 .stat-box {
   float: left;
 }
 
 .stat-box .title {
-  font-size: 16px;
+  font-size: 17px;
 }
 
 .stat-box .value {
-  font-size: 20px;
+  font-size: 22px;
   font-weight: bold;
 }
+
+
 
 .Work-Total {
   grid-area: Work-Total;
