@@ -29,6 +29,16 @@ button.active {
   border-top: 3px solid #c4c4c4 !important;
 }
 
+.bottom-bar a {
+  color: #6400a1;
+  float: left;
+  margin: 0px;
+  outline: none;
+  padding: 10px 0px 10px 10px;
+  font-weight: bold;
+  font-size: 13px;
+  text-decoration: none;
+}
 .bottom-bar button {
   background-color: transparent;
   border: none;
@@ -36,7 +46,7 @@ button.active {
   float: left;
   margin: 0px;
   outline: none;
-  padding: 8px 8px;
+  padding: 5px 5px;
   font-weight: bold;
 }
 
@@ -81,10 +91,6 @@ button.active {
 
 .Wellbeing-Circle {
   grid-area: Wellbeing-Circle;
-}
-
-.Percentage-value {
-  margin-top: 20px;
 }
 
 .wellbeing-stat {
@@ -134,7 +140,25 @@ button.active {
   flex-direction: column;
   margin-bottom: 5px;
   padding-top: 10px;
-  text-align: center;
+  color: #fff
+}
+
+.stat-score {
+  display: flex;
+  flex-direction: row;
+}
+
+.stat-box {
+  float: left;
+}
+
+.stat-box .title {
+  font-size: 16px;
+}
+
+.stat-box .value {
+  font-size: 20px;
+  font-weight: bold;
 }
 
 .Work-Total {
