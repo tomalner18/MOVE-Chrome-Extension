@@ -6,9 +6,9 @@ function setAlarm() {
   });
   chrome.storage.local.set({timer: true, break: false, paused: false});
   chrome.browserAction.setBadgeText({text: 'ON'});
-  chrome.browserAction.setBadgeBackgroundColor({color: 'green'})
-  chrome.alarms.create({when: Date.now() + 1000 * 60 * minutes});
+  chrome.browserAction.setBadgeBackgroundColor({color: 'green'});
   var endtime = Date.now() + 1000 * 60 * minutes;
+  chrome.alarms.create({when: endtime});
   chrome.storage.local.set({minutes: minutes, endtime: endtime});
   window.close();
 }
@@ -48,19 +48,36 @@ function clearAlarm() {
 function pauseAlarm() {
   chrome.storage.local.get(["endtime"], function(result) {
     var durationLeft = (result.endtime - Date.now())/1000;
+    chrome.extension.getBackgroundPage().console.log("durationLeft: " + durationLeft);
     chrome.storage.local.set({durationLeft: durationLeft, paused: true}, function() {
       console.log("Storage Succesful");
 
       // stop the countdown and freeze it.
       clearInterval(countdown_id);
       chrome.alarms.clearAll();
+
+      // Replace the pause button with the continue one.
+      document.getElementById('pause').style.display = 'none';
+      document.getElementById('continue').style.display = '';
+
+      chrome.browserAction.setBadgeText({text: 'PAUSED'});
+      chrome.browserAction.setBadgeBackgroundColor({color: 'green'});
     });    
   });
 }
 
 // continue from a paused alarm.
 function continueAlarm() {
+  chrome.storage.local.get("durationLeft", function(result) {
+    var endtime = Date.now() + (1000 * result.durationLeft);
+    chrome.alarms.create({when: endtime});
+    chrome.storage.local.set({endtime: endtime, paused: false});
 
+    chrome.browserAction.setBadgeText({text: 'ON'});
+    chrome.browserAction.setBadgeBackgroundColor({color: 'green'});
+
+    window.close();
+  })
 }
 
 function clearTabs() {
@@ -156,6 +173,10 @@ function displayWorkingHomePage() {
       
       var display = document.querySelector('#countdown');
       display.textContent = minutes + " mins " + seconds + " s to next break.";
+
+      // I also want to have the continue button displayed, instead of the pause one.
+      document.getElementById('pause').style.display = 'none';
+      document.getElementById('continue').style.display = '';
     }    
   })
 }
@@ -167,6 +188,7 @@ document.getElementById('create-solo').addEventListener('click', setAlarm);
 document.getElementById('cancelAlarm').addEventListener('click', clearAlarm);
 document.getElementById('cancelAlarm2').addEventListener('click', clearAlarm);
 document.getElementById('pause').addEventListener('click', pauseAlarm);
+document.getElementById('continue').addEventListener('click', continueAlarm);
 
 // if the user is currently in the middle of a work session, then the default page of the popup should be the home-page-when-working one.
 chrome.storage.local.get("timer", function (result) {
