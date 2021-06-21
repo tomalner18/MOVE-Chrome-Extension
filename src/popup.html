@@ -69,11 +69,16 @@
         </div>
         <div class="outerCircle"></div>
         <div class="innerCircle"></div>
-        <p class="icon">98%</p>
-        <div class="tooltip">Stats info
-          <span class="tooltiptext">Your wellbeing score is calculated by determining the percentage of scheduled
-            sessions you are able to complete combined with the number of break exercises you successfully complete
-            too.</span>
+        <div class="wellbeing-stat tooltip">
+          <div class="graph-icon">
+            <img src="icons/bar_chart_purple_36dp.svg" alt="">
+          </div>
+          <div class="wellbeing-number">
+            98%
+          </div>
+          <span class="tooltiptext">Your wellbeing score is calculated as an average of your mood and 
+            productivity ratings, reduced by the variance in your study and break behaviour.
+          </span>
         </div>
       </div>
       <div class="Percentage-Scores">
@@ -111,6 +116,15 @@
   <!-- More-Page -->
   <div id="more-page" class="tab" style="display:none">
     <button id='view-more'>View More</button>
+  </div>
+
+  <div class="bottom-bar">
+    <button id="open-web">Open in web app</button>
+    <div class="nav-right">
+      <button id="notifications">
+        <img src="icons/notifications_purple_24dp.svg" alt="">
+      </button>
+    </div>
   </div>
 
   <!-- Scripts: -->

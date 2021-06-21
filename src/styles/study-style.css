@@ -4,20 +4,48 @@ body {
 }
 
 /* Nav-Bar */
+
 .nav-container {
   height: 70px;
 }
 
 .nav-right {
-    float: right;
-    padding: 0%;
+  float: right;
+  padding: 0%;
 }
+
 .nav-container button:hover {
-    opacity: 0.9;
+  opacity: 0.9;
 }
 
 button.active {
   opacity: 1;
+}
+
+/* Bottom-Bar */
+
+.bottom-bar {
+  height: 40px;
+  border-top: 3px solid #c4c4c4 !important;
+}
+
+.bottom-bar button {
+  background-color: transparent;
+  border: none;
+  color: #6400a1;
+  float: left;
+  margin: 0px;
+  outline: none;
+  padding: 8px 8px;
+  font-weight: bold;
+}
+
+/* Pages */
+
+.tab {
+  height: 310px;
+  width: 500px;
+  padding: 5px
 }
 
 .page-content {
@@ -28,174 +56,215 @@ button.active {
 
 /* Home-Page */
 
-  
-  #cal-link {
-    margin: auto;
-    width: 50%;
-    height:30%;
-    margin-top: 20px;
+#cal-link {
+  margin: auto;
+  width: 50%;
+  height: 30%;
+  margin-top: 20px;
+}
+
+/* Stat-Page */
+
+.container {
+  display: grid;
+  width: 490px;
+  height: 300px;
+  grid-template-columns: 54% 46%;
+  grid-template-rows: 64% 36%;
+  gap: 0px 0px;
+  position: relative;
+  top: 0;
+  left: 0;
+  grid-auto-flow: row;
+  grid-template-areas: "wellbeing Percentage-Scores" "wellbeing Work-Total";
+}
+
+.Wellbeing-Circle {
+  grid-area: Wellbeing-Circle;
+}
+
+.Percentage-value {
+  margin-top: 20px;
+}
+
+.wellbeing-stat {
+  top: -170px;
+  margin: 0 auto;
+  color: #6400a1;
+  font-weight: bold;
+  font-size: 18px;
+  text-align: center;
+}
+
+.outerCircle {
+  background-color: transparent;
+  border: 8px solid rgba(200, 12, 158);
+  border-right: 5px solid transparent;
+  border-left: 5px solid transparent;
+  border-radius: 100px;
+  width: 150px;
+  height: 150px;
+  margin: 0 auto;
+  position: relative;
+  top: 60px;
+  -moz-animation: spinPulse 3s infinite ease-in-out;
+  -webkit-animation: spinPulse 3s infinite ease-in-out;
+}
+
+.innerCircle {
+  background-color: transparent;
+  border: 5px solid rgba(0, 125, 241);
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-radius: 100px;
+  top: -76px;
+  width: 120px;
+  height: 120px;
+  margin: 0 auto;
+  position: relative;
+  -moz-animation: spinoffPulse 3s infinite linear;
+  -webkit-animation: spinoffPulse 3s infinite linear;
+}
+
+.Percentage-Scores {
+  grid-area: Percentage-Scores;
+  background: linear-gradient(124.58deg, rgba(200, 12, 158) -11.8%, rgba(0, 122, 255) 135.63%);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 5px;
+  padding-top: 10px;
+  text-align: center;
+}
+
+.Work-Total {
+  grid-area: Work-Total;
+  background: linear-gradient(124.58deg, rgba(200, 12, 158) -11.8%, rgba(0, 122, 255) 135.63%);
+  border-radius: 10px;
+  text-align: center;
+  padding-top: 10px;
+}
+
+#viewCalendar, #viewGroups {
+  width: 100%;
+  height: 200%;
+  margin-top: 30%;
+}
+
+@-moz-keyframes spinPulse {
+  0% {
+    -moz-transform: rotate(160deg);
+    opacity: 0;
+    box-shadow: 0 0 1px #bdd73c;
   }
-  #viewCalendar, #viewGroups {
-    
-    width: 100%;
-    height:200%;
-    margin-top: 30%;
+  50% {
+    -moz-transform: rotate(145deg);
+    opacity: 1;
   }
-  
-  .container {
-    display: grid;
-    grid-template-columns: 0.54fr 0.46fr;
-    grid-template-rows: 0.64fr 0.36fr;
-    gap: 0px 0px;
-    position: relative;
-    top: 0;
-    left: 0;
-    grid-auto-flow: row;
-    grid-template-areas:
-      "wellbeing Percentage-Scores"
-      "wellbeing Work-Total";
+  100% {
+    -moz-transform: rotate(-320deg);
+    opacity: 0;
   }
-  
-  .Wellbeing-Circle { grid-area: Wellbeing-Circle; }
-  
-  .Percentage-Scores { 
-    grid-area: Percentage-Scores; 
-    background: linear-gradient(124.58deg, rgba(200, 12, 158) -11.8%, rgba(0, 122, 255) 135.63%);
-    border-radius: 10px; 
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 5px;
-    padding-top: 10px;
-    text-align: center;
+}
+
+@-moz-keyframes spinoffPulse {
+  0% {
+    -moz-transform: rotate(0deg);
   }
-  
-  .Work-Total { 
-    grid-area: Work-Total; 
-    background: linear-gradient(124.58deg, rgba(200, 12, 158) -11.8%, rgba(0, 122, 255) 135.63%);
-    border-radius: 10px; 
-    text-align: center;
-    padding-top: 10px;
-   }
-  
-   .Percentage-value{
-     margin-top: 20px;
-   }
-  
-  
-  .icon {
-     top: -142px;
-     margin: 0 auto;
-     position: relative;
-     left: 145px;
-     color: rgba(0, 125, 241)
+  100% {
+    -moz-transform: rotate(360deg);
   }
-  
-    .outerCircle {
-    background-color: transparent;
-    border: 8px solid rgba(200, 12, 158);
-    opacity: .9;
-    border-right: 5px solid transparent;
-    border-left: 5px solid transparent;
-    border-radius: 100px;
-    width: 150px;
-    height: 150px;
-    margin: 0 auto;
-    position: relative;
-    top: 60px;
-    -moz-animation: spinPulse 3s infinite ease-in-out;
-    -webkit-animation: spinPulse 3s infinite ease-in-out;
-    }
-    .innerCircle {
-    background-color: transparent;
-    border: 5px solid rgba(0, 125, 241);
-    opacity: .9;
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent;
-    border-radius: 100px;
-    top: -76px;
-    width: 120px;
-    height: 120px;
-    margin: 0 auto;
-    position: relative;
-    -moz-animation: spinoffPulse 3s infinite linear;
-    -webkit-animation: spinoffPulse 3s infinite linear;
-    
-    }
-    
-    
-    @-moz-keyframes spinPulse {
-        0% { -moz-transform:rotate(160deg); opacity:0; box-shadow:0 0 1px #bdd73c;}
-      50% { -moz-transform:rotate(145deg); opacity:1; }
-      100% { -moz-transform:rotate(-320deg); opacity:0; }
-    }
-    @-moz-keyframes spinoffPulse {
-        0% { -moz-transform:rotate(0deg); }
-      100% { -moz-transform:rotate(360deg);  }
-    }
-    @-webkit-keyframes spinPulse {
-        0% { -webkit-transform:rotate(160deg); opacity:0; box-shadow:0 0 1px #bdd73c; }
-      50% { -webkit-transform:rotate(145deg); opacity:1;}
-      100% { -webkit-transform:rotate(-320deg); opacity:0; }
-    }
-    @-webkit-keyframes spinoffPulse {
-        0% { -webkit-transform:rotate(0deg); }
-      100% { -webkit-transform:rotate(360deg); }
-    }
-    @-moz-keyframes rotatecircle {
-        0% { -moz-transform:rotate(0deg); }
-      100% { -moz-transform:rotate(-360deg); }
-    }
-    
-    @-webkit-keyframes rotatecircle {
-        0% { -webkit-transform:rotate(0deg); }
-    100% { -webkit-transform:rotate(-360deg); }
-    }
-  
-  
-  
-    /* Tooltip container */
-  .tooltip {
-    margin-left: 25px;
-    position: relative;
-    display: inline-block;
-    border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
+}
+
+@-webkit-keyframes spinPulse {
+  0% {
+    -webkit-transform: rotate(160deg);
+    opacity: 0;
+    box-shadow: 0 0 1px #bdd73c;
   }
-  
-  /* Tooltip text */
-  .tooltip .tooltiptext {
-    visibility: hidden;
-    width: 120px;
-    background-color: black;
-    color: #fff;
-    text-align: center;
-    font-size: xx-small;
-    padding: 5px 0;
-    border-radius: 6px;
-   
-    /* Position the tooltip text - see examples below! */
-    position: absolute;
-    z-index: 1;
+  50% {
+    -webkit-transform: rotate(145deg);
+    opacity: 1;
   }
-  
-  .tooltip .tooltiptext {
-    width: 120px;
-    bottom: 100%;
-    left: 50%;
-    margin-left: -60px; /* Use half of the width (120/2 = 60), to center the tooltip */
+  100% {
+    -webkit-transform: rotate(-320deg);
+    opacity: 0;
   }
-  
-  .tooltip .tooltiptext::after {
-    content: " ";
-    position: absolute;
-    top: 100%; /* At the bottom of the tooltip */
-    left: 50%;
-    margin-left: -5px;
-    border-width: 5px;
-    border-style: solid;
-    border-color: black transparent transparent transparent;
+}
+
+@-webkit-keyframes spinoffPulse {
+  0% {
+    -webkit-transform: rotate(0deg);
   }
-  
-  /* Show the tooltip text when you mouse over the tooltip container */
-  .tooltip:hover .tooltiptext {
-    visibility: visible;
+  100% {
+    -webkit-transform: rotate(360deg);
   }
+}
+
+@-moz-keyframes rotatecircle {
+  0% {
+    -moz-transform: rotate(0deg);
+  }
+  100% {
+    -moz-transform: rotate(-360deg);
+  }
+}
+
+@-webkit-keyframes rotatecircle {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(-360deg);
+  }
+}
+
+/* Tooltip container */
+
+.tooltip {
+  position: relative;
+  /* border-bottom: 1px dotted black; */
+  /* If you want dots under the hoverable text */
+}
+
+/* Tooltip text */
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  font-size: xx-small;
+  padding: 5px 0;
+  border-radius: 6px;
+  /* Position the tooltip text - see examples below! */
+  position: absolute;
+  z-index: 1;
+}
+
+.tooltip .tooltiptext {
+  width: 120px;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -60px;
+  /* Use half of the width (120/2 = 60), to center the tooltip */
+}
+
+.tooltip .tooltiptext::after {
+  content: " ";
+  position: absolute;
+  top: 100%;
+  /* At the bottom of the tooltip */
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: black transparent transparent transparent;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
