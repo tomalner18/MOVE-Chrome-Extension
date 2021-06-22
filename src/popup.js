@@ -208,3 +208,11 @@ window.onload = function () {
     }
   });
 };
+
+// populate the study-time and break-time parameter boxes with values that were previously inputed.
+chrome.storage.local.get(["minutes", "pausetime"], function(result) {
+  if (result.minutes && result.pausetime) {
+    document.getElementById("study-time").value = result.minutes;
+    document.getElementById("break-time").value = result.pausetime;
+  }
+})
