@@ -185,7 +185,7 @@ function displayWorkingHomePage() {
 // in approximately 1 minute incriments if released
 iniNav();
 document.getElementById('create-solo').addEventListener('click', setAlarm);
-document.getElementById('cancelAlarm').addEventListener('click', clearAlarm);
+// document.getElementById('cancelAlarm').addEventListener('click', clearAlarm);
 document.getElementById('cancelAlarm2').addEventListener('click', clearAlarm);
 document.getElementById('pause').addEventListener('click', pauseAlarm);
 document.getElementById('continue').addEventListener('click', continueAlarm);

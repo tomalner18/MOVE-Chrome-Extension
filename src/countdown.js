@@ -70,8 +70,13 @@ function setAlarm() {
 function clearAlarm() {
   chrome.browserAction.setBadgeText({text: ''});
   chrome.alarms.clearAll();
-  chrome.storage.local.set({timer: false} , function (){
-    console.log("Storage Succesful");});
+  chrome.storage.local.set({timer: false, break: false} , function (){
+    console.log("Storage Succesful");
+  });
+  
+  // pressing the chrome extension icon should open you popup.html
+  chrome.browserAction.onClicked.removeListener(openBreakWindow);
+  chrome.browserAction.setPopup({popup: "./popup.html"});
   window.close();
 }
 
@@ -79,3 +84,9 @@ function clearAlarm() {
 // in approximately 1 minute incriments if released
 document.getElementById('create-solo').addEventListener('click', setAlarm);
 document.getElementById('cancelAlarm').addEventListener('click', clearAlarm);   
+
+// populate the study-time and break-time parameter boxes with values that were previously inputed.
+chrome.storage.local.get(["minutes", "pausetime"], function(result) {
+  document.getElementById("study-time").value = result.minutes;
+  document.getElementById("break-time").value = result.pausetime;
+})
