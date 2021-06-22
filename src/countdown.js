@@ -28,20 +28,42 @@ window.onload = function () {
 
 /* Reschedule */
 
+function openBreakWindow() {
+  chrome.windows.create({
+    url: "break.html",
+    type: "popup",
+    width: 436,  /*Add 16 to desired size? */
+    height: 300
+  });
+}
+
 function setAlarm() {
+  // Cancel the break alarm.
+  chrome.browserAction.setBadgeText({text: ''});
+  chrome.alarms.clearAll();
+  chrome.storage.local.set({timer: false} , function (){
+    console.log("Storage Succesful");
+  });
+
   let minutes = parseFloat(document.getElementById("study-time").value);
   let pause = parseFloat(document.getElementById("break-time").value);
   chrome.storage.local.set({'pausetime': pause}, function (){
     console.log("Storage Succesful");
   });
-  chrome.storage.local.set({timer: true, break: true}, function() {
-  chrome.browserAction.setBadgeText({text: 'SCH'});
-  chrome.browserAction.setBadgeBackgroundColor({color: 'purple'})
-  chrome.storage.local.get(['timerend'], function(result) {
-      chrome.alarms.create("Sch", {when: result.timerend + 1000 * 60 * minutes});
-      chrome.storage.local.set({minutes: minutes});
-      window.close(); 
-      });
+
+  // immediately start the work session
+  chrome.storage.local.set({timer: true, break: false, paused: false}, function() {
+    chrome.browserAction.setBadgeText({text: 'ON'});
+    chrome.browserAction.setBadgeBackgroundColor({color: 'green'})
+    var endtime = Date.now() + 1000 * 60 * minutes;
+    chrome.alarms.create("Sch", {when: endtime});
+    chrome.storage.local.set({minutes: minutes, endtime: endtime});
+
+    // when the new work session starts, pressing the chrome extension icon should open you popup.html, with the countdown showing.
+    chrome.browserAction.onClicked.removeListener(openBreakWindow);
+    chrome.browserAction.setPopup({popup: "./popup.html"});
+    
+    window.close();
   });
 }
   

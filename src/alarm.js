@@ -34,12 +34,22 @@ function notifyFinish() {
     yourSound.play();
   }
 
+function openBreakWindow() {
+  chrome.windows.create({
+    url: "break.html",
+    type: "popup",
+    width: 436,  /*Add 16 to desired size? */
+    height: 300
+  });
+}
+
 chrome.alarms.onAlarm.addListener(function() {
   chrome.extension.getBackgroundPage().console.log("hi");
   chrome.storage.local.get(['pausetime', 'timer', 'break'], function(result) {
     chrome.extension.getBackgroundPage().console.log('Value currently is ' + result.pausetime);
     chrome.extension.getBackgroundPage().console.log('Value currently is ' + result.timer);
 
+    // when the work session has ended and we've just entered a break.
     if (result.timer && !result.break) {
       chrome.notifications.create(`my-notification-${Date.now()}`,{
         type:     'basic',
@@ -58,16 +68,21 @@ chrome.alarms.onAlarm.addListener(function() {
         chrome.browserAction.setBadgeBackgroundColor({color: 'blue'})
 
         chrome.storage.local.set({timer: false, break: true} , function (){
-          console.log("Storage Succesful");});
-          let endtime = Date.now() + 1000 * 60 * result.pausetime
-          chrome.storage.local.set({timerend: endtime}, function(){
-            chrome.alarms.create("break", {when: endtime});
-          });
-          playSound();         
+          console.log("Storage Succesful");
+
+          // during a break, users should be openning a new break.html window when they click on the chrome extension icon.
+          chrome.browserAction.setPopup({popup: ""});
+          chrome.browserAction.onClicked.addListener(openBreakWindow);
+        });
+        let endtime = Date.now() + 1000 * 60 * result.pausetime
+        chrome.storage.local.set({timerend: endtime}, function(){
+          chrome.alarms.create("break", {when: endtime});
+        });
+        playSound();         
 
     } else {
       
-      
+      // when we've reached the end of a break. Here timer is false, break doesn't matter.
       if(!result.timer) {
         chrome.storage.local.set({timer: false, break: true} , function () {
           console.log("End of break");
@@ -83,14 +98,21 @@ chrome.alarms.onAlarm.addListener(function() {
           buttons: [
             {title: 'Okay'}
           ],
-          priority: 0}, function(id) {
+          priority: 0}, 
+          function(id) {
             myNotificationID = id + 1;
           });
           var sound = new Audio('./mixkit-positive-notification-951.wav')
             sound.play();
-      } else {
+      } 
+      
+      // when timer is true, and break is true
+      // don't think this one is hit?
+      else {
         chrome.storage.local.set({timer: true, break: false} , function () {
           console.log("End of break");
+          chrome.browserAction.setPopup({popup: "./popup.html"});
+          chrome.browserAction.onClicked.removeListener(openBreakWindow);
         });
         chrome.browserAction.setBadgeText({text: 'ON'});
         chrome.browserAction.setBadgeBackgroundColor({color: 'green'})
