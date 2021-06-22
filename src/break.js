@@ -38,7 +38,9 @@ function clearNav() {
 function openLanding() {
   clearNav();
   clearTabs();
-  document.getElementById("landing-page").style.display = "grid"
+  document.getElementById("landing-page").style.display = "grid";
+  var y = document.getElementById("home-btn");
+  y.classList.add("active");
 }
 
 function openExercise() {
@@ -77,12 +79,10 @@ function iniBreakNav() {
   document.getElementById('exercise-btn').addEventListener('click', openExercise);
   document.getElementById('relax-btn').addEventListener('click', openRelax);
   document.getElementById('motivation-btn').addEventListener('click', openMotivation);
+  document.getElementById('home-btn').addEventListener('click', openLanding);
 }
 
 function iniBacks() {
-  document.getElementById("exercise-back").addEventListener('click', openLanding);
-  document.getElementById("relax-back").addEventListener('click', openLanding);
-  document.getElementById("motivation-back").addEventListener('click', openLanding);
   document.getElementById("more-exercise-back").addEventListener('click', openExercise);
 }
 
