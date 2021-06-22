@@ -4,7 +4,7 @@
 }
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Open Sans", 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 /* Nav-bar */
@@ -40,19 +40,12 @@ body {
     width: 100%;
 }
   
-
-
 button {
     margin: 0px;
     outline: none;
 }
 
 /* Schedule */
-
-.home-page, #stat-page {
-  margin: 5px;
-  display: grid;
-}
 
 .session-field {
   margin-top: 10px;

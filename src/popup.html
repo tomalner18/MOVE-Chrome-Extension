@@ -11,6 +11,7 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="styles/shared-style.css">
   <link rel="stylesheet" href="styles/study-style.css">
+  <!-- <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"> -->
 </head>
 
 <body>
@@ -95,49 +96,118 @@
 
   <!-- Stat-Page -->
   <div id="stat-page" class="tab" style="display:none">
-    <div id="stat-page-content" class="tab home-page"></div>
     <div class="container">
-      <div class="Wellbeing-Circle">
+      <div class="wellbeing">
         <div class="page-header current-wellbeing">
           Current Wellbeing
-          <div class="wellbeing">
-            <div class="outerCircle"></div>
-            <div class="innerCircle"></div>
-            <p class="icon">98%</p>
-            <div class="tooltip">Stats info
-              <span class="tooltiptext">Your wellbeing score is calculated by determining the percentage of scheduled
-                sessions you are able to complete combined with the number of break exercises you successfully complete
-                too.</span>
-            </div>
+        </div>
+        <div class="outerCircle"></div>
+        <div class="innerCircle"></div>
+        <div class="wellbeing-stat tooltip">
+          <div class="graph-icon">
+            <img src="icons/bar_chart_purple_36dp.svg" alt="">
           </div>
+          <div class="wellbeing-number">
+            98%
+          </div>
+          <span class="tooltiptext">Your wellbeing score is calculated as an average of consistency 
+            along with your productivity and mood ratings.
+          </span>
         </div>
       </div>
       <div class="Percentage-Scores">
-        <p class="Percentage-value">Consistency</p>
-        <p class="Percentage-value">Productivity</p>
-        <p class="Percentage-value">Mood</p>
+        <div class="consistency stat-score">
+          <div class="icon">
+            <img src="icons/schedule_white_24dp.svg" alt="">
+          </div>
+          <div class="stat-box">
+            <div class="title">Consistency</div>
+            <div class="value">81%</div>
+          </div>
+          <div>
+            <img class="info" src="icons/info_white_18dp.svg" alt="">
+            <span class ="infotip con-tip">
+              Your consistency is a heuristic based on the variance of your break and study 
+              times. A lower variance gives a higher score.
+            </span>
+          </div>
+        </div>
+        <div class="productivity stat-score">
+          <div class="icon">
+            <img src="icons/psychology_white_24dp.svg" alt="">
+          </div>
+          <div class="stat-box">
+            <div class="title">Productivity</div>
+            <div class="value">74%</div>
+          </div>
+          <div>
+            <img class="info" src="icons/info_white_18dp.svg" alt="">
+            <span class ="infotip pro-tip">
+              Your current productivity is calculated as the average productivity rating you
+              have given over the past week.
+            </span>
+          </div>
+        </div>
+        <div class="mood stat-score">
+          <div class="icon">
+            <img src="icons/auto_awesome_white_24dp.svg" alt="">
+          </div>
+          <div class="stat-box">
+            <div class="title">Mood</div>
+            <div class="value">88%</div>
+          </div>
+          <div>
+            <img class="info" src="icons/info_white_18dp.svg" alt="">
+            <span class ="infotip mood-tip">
+              Your current mood is calculated as the average mood rating you have given 
+              over the past week.
+            </span>
+          </div>
+        </div>
       </div>
-      <div class="Work-Total">
-
-        Daily Work Total</div>
+      <div class="work-total">
+        <div class="title">
+          Daily Work Total
+        </div>
+        <div class="value-box">
+          <div class="value">
+            5:45
+          </div>
+          <!-- <div class="change">
+            10%
+          </div> -->
+        </div>
+        <div class="past">
+          Compared to 5:30 yesterday
+        </div>
+      </div>
     </div>
   </div>
 
   <!-- Calendar-Page -->
   <div id="calendar-page" class="tab" style="display:none">
-    <a id='cal-link' href="https://moveimperial.herokuapp.com/" target="_blank">
       <button id='viewCalendar' class="session-button">View Calendar</button></a>
   </div>
 
   <!-- Social-Page -->
   <div id="social-page" class="tab" style="display:none">
-    <a id='cal-link' href="https://moveimperial.herokuapp.com/" target="_blank">
       <button id='viewGroups' class="session-button">View Groups</button></a>
   </div>
 
   <!-- More-Page -->
   <div id="more-page" class="tab" style="display:none">
     <button id='view-more'>View More</button>
+  </div>
+
+  <div class="bottom-bar">
+    <a id='web-app-link' href="https://moveimperial.herokuapp.com/" target="_blank">
+      Open in web app
+    </a>
+    <div class="nav-right">
+      <button id="notifications">
+        <img src="icons/notifications_purple_24dp.svg" alt="">
+      </button>
+    </div>
   </div>
 
   <!-- Scripts: -->
