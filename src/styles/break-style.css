@@ -60,6 +60,15 @@ button.active {
   width: 150px;
 }
 
+.center-of-page {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  /* border: 5px solid #FFFF00; */
+  padding: 100px;
+}
+
 /* ----------------------------------------------------- */
 /* for the exercise page */
 .button {
