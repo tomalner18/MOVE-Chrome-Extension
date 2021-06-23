@@ -10,12 +10,14 @@
 } */
 
 .nav-container  {
-  display: flex;
+  /* display: flex; */
   height: 50px;
-  justify-content: space-between;
+  /* justify-content: space-between; */
+  overflow: hidden
 }
 
 .nav-container button {
+  float: left;
   background-color: transparent;
   border: none;
   color: #ffffff;
@@ -23,10 +25,15 @@
   opacity: 0.6;
   outline: none;
   padding: 17px 34px;
+  font-size: 17px;
 }
 
 .nav-container button:hover {
   opacity: 1;
+}
+
+.nav-container-right {
+  float: right;
 }
   
 button.active {
