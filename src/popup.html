@@ -11,7 +11,10 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="styles/shared-style.css">
   <link rel="stylesheet" href="styles/study-style.css">
-  <!-- <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"> -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto" rel="stylesheet">
 </head>
 
 <body>
@@ -40,18 +43,19 @@
   <!-- Home-Page -->
   <div id="home-page" class="tab home-page">
     <div class="page-header">
-      <br>
-      <div align="center">
-        Helping you take better breaks.
+      Start a study session
+    </div>
+
+    <div class="session-advice">
+      <div class="advice">
+        Research suggests that short frequent breaks are much more effective than the occasional longer break.
+      </div>
+      <div class="advice">
+        Aim to keep study sessions no longer than 60 minutes, and your break durations below 15 minutes.
       </div>
     </div>
 
-    <div style="padding: 10px 30px 0px 30px;">
-      Research suggests that short frequent breaks are much effective than the occasional longer break. 
-      As such, your study sessions should be no longer than 60 minutes, and your break durations should be 10 minutes or shorter.
-    </div>
-
-    <div class="page-content">   
+    <div class="page-content">
       <div class="session-field center">
         <label>Choose a study duration:
           <input id="study-time" type="number" min="5" max="120" value="45" />
@@ -65,8 +69,10 @@
         </label>
       </div>
 
-      <button id='create-solo' class='session-button' value='Create'>Start a study session</button>
-      
+      <button id='create-solo' class='session-button' value='Create'>
+        Start Session
+      </button>
+
       <!-- don't need to have a Cancel Work Session button on the home page, because no study session is currently live. -->
       <!-- <button id='cancelAlarm' class='session-button red-button'>Cancel Work Session</button> -->
     </div>
@@ -110,7 +116,7 @@
           <div class="wellbeing-number">
             98%
           </div>
-          <span class="tooltiptext">Your wellbeing score is calculated as an average of consistency 
+          <span class="tooltiptext">Your wellbeing score is calculated as an average of consistency
             along with your productivity and mood ratings.
           </span>
         </div>
@@ -126,8 +132,8 @@
           </div>
           <div>
             <img class="info" src="icons/info_white_18dp.svg" alt="">
-            <span class ="infotip con-tip">
-              Your consistency is a heuristic based on the variance of your break and study 
+            <span class="infotip con-tip">
+              Your consistency is a heuristic based on the variance of your break and study
               times. A lower variance gives a higher score.
             </span>
           </div>
@@ -142,7 +148,7 @@
           </div>
           <div>
             <img class="info" src="icons/info_white_18dp.svg" alt="">
-            <span class ="infotip pro-tip">
+            <span class="infotip pro-tip">
               Your current productivity is calculated as the average productivity rating you
               have given over the past week.
             </span>
@@ -158,8 +164,8 @@
           </div>
           <div>
             <img class="info" src="icons/info_white_18dp.svg" alt="">
-            <span class ="infotip mood-tip">
-              Your current mood is calculated as the average mood rating you have given 
+            <span class="infotip mood-tip">
+              Your current mood is calculated as the average mood rating you have given
               over the past week.
             </span>
           </div>
@@ -191,7 +197,7 @@
 
   <!-- Social-Page -->
   <div id="social-page" class="tab" style="display:none">
-      <button id='viewGroups' class="session-button">View Groups</button></a>
+    <button id='viewGroups' class="session-button">View Groups</button></a>
   </div>
 
   <!-- More-Page -->

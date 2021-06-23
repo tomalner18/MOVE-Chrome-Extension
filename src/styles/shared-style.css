@@ -4,7 +4,7 @@
 }
 
 body {
-  font-family: "Open Sans", 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Roboto', "Open Sans", 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 /* Nav-bar */
@@ -35,7 +35,7 @@ body {
   
 .page-header {
     color: #6400A2;
-    font-size: 18px;
+    font-size: x-large;
     font-weight: bold;
     width: 100%;
 }
