@@ -38,8 +38,7 @@ function openBreakWindow() {
   chrome.windows.create({
     url: "break.html",
     type: "popup",
-    width: 600, 
-    height: 500
+    state: "maximized"
   });
 }
 

@@ -9,7 +9,7 @@ function startTimer(duration, display) {
       minutes = minutes < 10 ? "0" + minutes : minutes;
       seconds = seconds < 10 ? "0" + seconds : seconds;
 
-      display.textContent = minutes + ":" + seconds;
+      display.textContent = "Break time remaining: " + minutes + ":" + seconds;
 
       if (--timer < 0) {
           timer = duration;
@@ -32,8 +32,7 @@ function openBreakWindow() {
   chrome.windows.create({
     url: "break.html",
     type: "popup",
-    width: 600, 
-    height: 500
+    state: "maximized"
   });
 }
 

@@ -11,6 +11,7 @@ function newQuote() {
   //document.getElementById('home-page').style.backgroundImage = "url('https://i.ytimg.com/vi/ysuUmpovJBE/maxresdefault.jpg')";
 }
 
+// for relaxation tips
 function newActivity() {
   var rand = break_content.activities[Math.floor(Math.random() * (break_content.activities.length))];
   document.getElementById('output-activity').innerHTML = rand;
@@ -64,7 +65,8 @@ function openRelax() {
   clearTabs();
   document.getElementById("relax-page").style.display = "grid";
   var y = document.getElementById("relax-btn");
-  y.classList.add("active")
+  y.classList.add("active");
+  newActivity();
 }
 
 function openMotivation() {
@@ -73,6 +75,7 @@ function openMotivation() {
   document.getElementById("motivation-page").style.display = "grid";
   var y = document.getElementById("motivation-btn");
   y.classList.add("active");
+  newQuote();
 }
 
 function iniBreakNav() {

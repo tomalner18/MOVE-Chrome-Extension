@@ -133,7 +133,25 @@ input[type=number]::-webkit-outer-spin-button {
   background: darkgreen;
 }
 
+.red-text-button {
+  border: none;
+  background-color: inherit;
+  color: red;
+  padding: 10px 20px;
+  margin-left: auto;
+  margin-right: 5%;
+  margin-top: 50px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+  border-radius: 16px;
+  width: 30%;
+  font-weight: bold;
+}
 
-
+.red-text-button:hover {
+  background: #eee
+}
 
 

@@ -17,44 +17,58 @@
   <!-- TopBar -->
   <div class="nav-container">
     <button id="home-btn" class="active">
-      Home
+      <b>Home</b>
     </button>
     <button id="exercise-btn">
-      Exercises
+      <b>Exercises</b>
     </button>
     <button id="relax-btn">
-      Relax
+      <b>Relax</b>
     </button>
     <button id="motivation-btn">
-      Motivation
+      <b>Motivation</b>
     </button>
-    <button id="time">
-      00:00
-    </button>
+    <div class="nav-container-right">
+      <button id="time" style="font-weight:bold">
+        Break time remaining: 00:00
+      </button>
+    </div> 
   </div>
 
   <!-- Landing-Page -->
-  <div id="landing-page" class="tab landing-page">
-    <div align="center">
-      <div class="page-header">
-        Break time!
+  <div id="landing-page" class="tab landing-page center-of-page">
+    <div class="page-header" style="font-size:30px;">
+      Break time!
+    </div>
+    <br>
+    <p style="font-size:20px">Congrats, you've earned yourself a break! 
+      To get the most out of your break, why not explore the range of short exercise videos, relaxation tips, 
+      and motivational quotes that we have in store for you? 
+    </p>
+    </br>
+    </br>
+    <p style="font-size:20px">
+      Feel free to continue studying after your break.
+    </p>
+
+    </br>
+    <br>
+    <div class="page-content">
+      <div class="session-field center">
+        <label style="font-size:20px">Choose a study duration:
+          <input id="study-time" type="number" min="5" max="120" value="45" />
+          &nbsp; minutes
+        </label>
       </div>
-      <br>
-      <p style="font-size:20px">Want to continue studying after your break?</p>
-      </br>
-      <div class="page-content">
-        <div class="session-field center">
-          <label>Choose a study duration:
-            <input id="study-time" type="number" min="5" max="120" value="45" /></label>
-        </div>
-        <div class="session-field center">
-          <label>Choose a break duration:
-            <input id="break-time" type="number" min="5" max="120" value="10" /></label>
-        </div>
-  
-        <button id='create-solo' class='session-button' value='Create'>Continue study session</button>
-        <button id='cancelAlarm' class='session-button red-button'>Cancel study session</button>
+      <div class="session-field center">
+        <label style="font-size:20px">Choose a break duration:
+          <input id="break-time" type="number" min="5" max="120" value="10" />
+          &nbsp; minutes
+        </label>
       </div>
+
+      <button id='create-solo' class='session-button' value='Create' style="font-size:15px; width: 300px; margin-bottom: 5px;">Continue study session</button>
+      <button id='cancelAlarm' class='red-text-button' style="font-size:15px; width: 300px; margin-top: 20px;">Cancel study session</button>
     </div>
   </div>
 
@@ -62,72 +76,66 @@
   <!-- Exercise-Page -->
   <div id="exercise-page" class="tab exercise-page" style="display:none">
     <div class="page-content">
-
       <br>
-
       <div align="center">
         <br>
         <br>
-        <p style="font-size:20px">Here's a short exercise to help you stay active! :)</p>
+        <p style="font-size:30px; color: #6400A2; font-weight: bold; width: 100%;">Here's a short exercise to help you stay active!</p>
+        <br>
+        <p style="font-size:20px">We've chosen exercises that are suitable to be done indoors, using little to no equipment.</p>
+        <p style="font-size:20px">If you're looking for more exercises, we've got 3 more exercise videos for you: </p>
+        <br>
+        <button id="more-exercise-videos" class="session-button" style="font-size:15px; width: 300px; padding: auto; margin: auto">More videos</button>
       </div>
-
-      
-      
       <!-- this div will be injected some HTML code via a script -->
       <div class="single_exercise_video"></div>
-
-      <div align="center">
-        <button id="more-exercise-videos" class="button">More videos</button>
-        <br>
-        <br>
-      </div>
-      
-
+      <br>
     </div>
   </div>
 
   <!---------------------------------------------------------------------------->
   <!-- More Exercise Page -->
   <div id="more-exercise-page" class="tab more-exercise-page" style="display:none">
+    
+    <br>
+    <button id="more-exercise-back" class="button0" style="margin-left: 20px;">Back</button>
+
     <div class="page-content">
-      <div align="center">
-        <br>
-        <button id="more-exercise-back" class="button0">Back</button>
+      <div align="center">   
+        <p style="font-size:30px; color: #6400A2; font-weight: bold; width: 100%;">Here are 3 more short exercise to help you stay active!</p>
       </div>
-      
       <!-- this div will be injected some HTML code via a script -->
       <div class="more-exercise-videos"></div>
-
     </div>
   </div>
 
   <!---------------------------------------------------------------------------->
   <!-- Relax -->
-  <div id="relax-page" class="tab relax-page" style="display:none">
+  <div id="relax-page" class="tab relax-page center-of-page" style="display:none">
+    
+    <div class="page-header" style="font-size:30px;">
+      Here's a tip to help you relax!
+    </div>
+    
     <div align="center">
       <br>
-      <br>
-      <br>
-      <p style="font-size:20px">Here's a tip to help you relax! :)</p>
-      <br>
       <div id="output-activity"><h2></h2></div>
-      <br></br>
-      <button id="activity" class="button0">Get a relaxing tip</button>
+      <button id="activity" class="session-button" style="font-size:15px; width: 300px">Get another relaxing tip</button>
     </div>
   </div>
 
   <!---------------------------------------------------------------------------->
   <!-- Motivation-Page -->
-  <div id="motivation-page" class="tab motivation-page" style="display:none">
+  <div id="motivation-page" class="tab motivation-page center-of-page" style="display:none">
+    
+    <div class="page-header" style="font-size:30px;">
+      Here's a motivational quote to keep you going!
+    </div>
+
     <div align="center">
       <br>
-      <br>
-      <br>
-      <p style="font-size:20px">Here's a motivational quote to keep you going! :)</p>
-      <br>        
       <div id="output-quote" ></div>
-      <br>
-      <button id="quote" class="button0">Get a quote</button>
+      <button id="quote" class="session-button" style="font-size:15px; width: 300px">Get another quote</button>
     </div>
   </div>
 
