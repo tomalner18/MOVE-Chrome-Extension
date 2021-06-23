@@ -46,17 +46,25 @@ button {
 }
 
 .styled-button {
-  border: none;
-  text-align: center;
-  cursor: pointer;
-  border-radius: 10px;
-  color: white;
-  font-weight: bold;
   background: linear-gradient(135deg, rgba(200, 12, 158) 2%, rgba(0, 125, 241) 110.6%);
+  border: none;
+  border-radius: 10px;
   box-shadow: 0 3px #999;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+  text-align: center;
 }
 
-/* Schedule */
+.styled-button:hover {
+  background: linear-gradient(135deg, rgb(143, 6, 113) 2%, rgb(7, 79, 146) 110.6%);
+}
+
+.styled-button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
 
 input {
   margin-left: 10px;
@@ -74,7 +82,7 @@ input {
 }
 
 input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer-spin-button {
-  height: 70px;
+  height: 60px;
   margin-right: 0px;
   opacity: 1;
   background-color: red;
@@ -98,17 +106,24 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   background: darkgreen;
 }
 
+.pause-button {
+  border-radius: 16px;
+  display: inline-block;
+  padding: 10px 20px;
+  margin-top: 30px;
+  margin-right: 5px;
+  text-align: center;
+  text-decoration: none;
+  width: 30%;
+}
+
 .red-text-button {
   border: none;
   background-color: inherit;
   color: red;
   padding: 10px 20px;
-  margin-left: auto;
-  margin-right: 5%;
-  margin-top: 50px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
+  margin-top: 30px;
+  margin-left: 5px;
   cursor: pointer;
   border-radius: 16px;
   width: 30%;

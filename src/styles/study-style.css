@@ -59,9 +59,6 @@ button.active {
   padding: 5px
 }
 
-.page-content {
-}
-
 /* Home-Page */
 
 .session-advice {
@@ -94,14 +91,11 @@ button.active {
   padding: 10px 20px;
 }
 
-.session-button:hover {
-  background: linear-gradient(135deg, rgb(143, 6, 113) 2%, rgb(7, 79, 146) 110.6%);
-}
+/* Home-Page2 */
 
-.session-button:active {
-  background-color: #3e8e41;
-  box-shadow: 0 5px #666;
-  transform: translateY(4px);
+.countdown {
+  text-align: center;
+  margin-top: 20px;
 }
 
 /* Stat-Page */
@@ -199,6 +193,7 @@ button.active {
 }
 
 .stat-box .value {
+  margin-top: 2px;
   font-size: 22px;
   font-weight: bold;
   letter-spacing: 1px;

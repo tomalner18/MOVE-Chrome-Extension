@@ -172,7 +172,7 @@ function displayWorkingHomePage() {
       seconds = seconds < 10 ? "0" + seconds : seconds;
       
       var display = document.querySelector('#countdown');
-      display.textContent = minutes + " mins " + seconds + " s to next break.";
+      display.textContent = minutes + " mins " + seconds + " s to next break";
 
       // I also want to have the continue button displayed, instead of the pause one.
       document.getElementById('pause').style.display = 'none';
