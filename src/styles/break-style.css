@@ -3,13 +3,13 @@
   margin: 0px;
   /* overflow: hidden; */
 }
-  
+
 /* body {
   width: 420px;
   height: 300px;
 } */
 
-.nav-container  {
+.nav-container {
   /* display: flex; */
   height: 50px;
   /* justify-content: space-between; */
@@ -35,7 +35,7 @@
 .nav-container-right {
   float: right;
 }
-  
+
 button.active {
   opacity: 1;
 }
@@ -70,7 +70,9 @@ button.active {
 }
 
 /* ----------------------------------------------------- */
+
 /* for the exercise page */
+
 .button {
   background-color: rgb(230, 223, 223);
   border: black 2px solid;
@@ -93,8 +95,32 @@ button.active {
 }
 
 /* ----------------------------------------------------- */
+
 /* for the more exercises page */
+
 /* Create three equal columns that floats next to each other */
+
+.move-back {
+  border-radius: 5px;
+  color: #6400a1;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: 30px;
+  margin-left: 20px;
+  width: 100px
+}
+
+.back-text {
+  font-size: medium;
+  font-weight: bold;
+  letter-spacing: 2px;
+  margin-left: 5px;
+  padding-top: 5px;
+  vertical-align: middle;
+}
+
 .column {
   float: left;
   width: 33.33%;
@@ -102,6 +128,7 @@ button.active {
 }
 
 /* Clear floats after the columns */
+
 .row:after {
   content: "";
   display: table;
@@ -113,4 +140,5 @@ button.active {
     width: 100%;
   }
 }
+
 /* ----------------------------------------------------- */

@@ -86,7 +86,7 @@ function iniBreakNav() {
 }
 
 function iniBacks() {
-  document.getElementById("more-exercise-back").addEventListener('click', openExercise);
+  document.getElementById("move-back").addEventListener('click', openExercise);
 }
 
 function iniMoreExercise() {
