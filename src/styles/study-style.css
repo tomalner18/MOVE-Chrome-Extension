@@ -39,6 +39,7 @@ button.active {
   font-size: 13px;
   text-decoration: none;
 }
+
 .bottom-bar button {
   background-color: transparent;
   border: none;
@@ -59,7 +60,6 @@ button.active {
 }
 
 .page-content {
-  padding: 50px 0 30px 0
 }
 
 /* Home-Page */
@@ -70,10 +70,38 @@ button.active {
   font-size: small;
   font-style: italic;
   color: #6400a1;
+  opacity: 0.8;
 }
 
 .advice {
   padding: 2px 0px 2px 0px;
+}
+
+.session-field {
+  margin-top: 5px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  color: #6400A2;
+  font-size: medium;
+  font-weight: bold;
+}
+
+.session-button {
+  border: none;
+  float: right;
+  margin-top: 5px;
+  margin-right: 10px;
+  padding: 10px 20px;
+}
+
+.session-button:hover {
+  background: linear-gradient(135deg, rgb(143, 6, 113) 2%, rgb(7, 79, 146) 110.6%);
+}
+
+.session-button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
 }
 
 /* Stat-Page */
@@ -208,7 +236,7 @@ button.active {
   transform: translateX(-50%);
 }
 
-.info:hover + .infotip {
+.info:hover+.infotip {
   visibility: visible;
 }
 
@@ -253,7 +281,6 @@ button.active {
   opacity: 0.6;
   padding-left: 10px;
 }
-
 
 #viewCalendar, #viewGroups {
   width: 100%;
