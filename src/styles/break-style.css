@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
 * {
   box-sizing: border-box;
   margin: 0px;
@@ -24,7 +25,7 @@
   margin: 0px;
   opacity: 0.6;
   outline: none;
-  padding: 17px 34px;
+  padding: 12px 34px;
   font-size: 17px;
 }
 

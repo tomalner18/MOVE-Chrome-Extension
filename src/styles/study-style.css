@@ -62,7 +62,7 @@ button.active {
 /* Home-Page */
 
 .session-advice {
-  padding: 5px 0px 5px 2px;
+  padding: 0px 0px 0px 2px;
   /* width: 60%; */
   font-size: small;
   font-style: italic;
@@ -163,7 +163,7 @@ button.active {
 .stat-score {
   display: grid;
   grid-template-columns: 20% 70% 10%;
-  margin: 5px 10px 5px 10px;
+  margin: 5px 10px 0px 10px;
 }
 
 .stat-score .icon {
@@ -179,13 +179,13 @@ button.active {
 }
 
 .stat-box .title {
-  font-size: 17px;
+  font-size: 16px;
   letter-spacing: 1px
 }
 
 .stat-box .value {
   margin-top: 2px;
-  font-size: 22px;
+  font-size: 20px;
   font-weight: bold;
   letter-spacing: 1px;
 }
@@ -259,7 +259,7 @@ button.active {
 }
 
 .work-total .value-box .value {
-  font-size: 36px;
+  font-size: 30px;
   font-weight: 800;
 }
 
