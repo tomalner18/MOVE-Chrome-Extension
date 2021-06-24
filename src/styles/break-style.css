@@ -127,6 +127,17 @@ button.active {
   width: 150px;
 }
 
+.tip-header {
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  top: 20%;
+}
+
+.tip-btn {
+  margin-top: 20px;
+}
+
 .center-of-page {
   position: absolute;
   left: 50%;

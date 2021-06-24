@@ -63,7 +63,7 @@ function openMoreExercises() {
 function openRelax() {
   clearNav();
   clearTabs();
-  document.getElementById("relax-page").style.display = "grid";
+  document.getElementById("relax-page").style.display = "block";
   var y = document.getElementById("relax-btn");
   y.classList.add("active");
   newActivity();
@@ -72,7 +72,7 @@ function openRelax() {
 function openMotivation() {
   clearNav();
   clearTabs();
-  document.getElementById("motivation-page").style.display = "grid";
+  document.getElementById("motivation-page").style.display = "block";
   var y = document.getElementById("motivation-btn");
   y.classList.add("active");
   newQuote();
