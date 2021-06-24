@@ -222,3 +222,6 @@ chrome.storage.sync.get(["productivity", "mood"], function (result) {
   document.getElementById("mood-val").textContent = Math.round(result.mood) + "%";
   document.getElementById("well-val").textContent = Math.round((result.mood + result.productivity) / 2) + "%";
 })
+
+// send a message everytime the popup.html is opened:
+chrome.runtime.sendMessage({popupOpen: true});

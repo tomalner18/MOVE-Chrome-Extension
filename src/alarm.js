@@ -180,3 +180,22 @@ chrome.notifications.onButtonClicked.addListener(function(notifId, btnIdx) {
       } 
     }
 });
+
+// a listener that executes the anonymous function everytime popup.html is opened.
+chrome.runtime.onMessage.addListener(function(message, sender, senderResponse) {
+  if (message.popupOpen) {
+    console.log("popupOpened yay!");
+
+    // get current time, and calculate how far away midnight is. And save the value into storage.sync.
+  }
+});
+
+// a function that needs to run everyday at 00:00 midnight.
+function resetStorageValues() {
+  chrome.storage.sync.get(["today_work_minutes_total"], function(result) {
+    var yesterday_total = result.today_work_minutes_total;
+    chrome.storage.sync.set({yesterday_work_minutes_total: yesterday_total, today_work_minutes_total: 0}, function() {
+      console.log("Stored today_work_minutes_total to yesterday_work_minutes_total");
+    })
+  })
+}
