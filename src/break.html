@@ -8,7 +8,8 @@
   <title>Take a break!</title>
 
   <!-- Stylesheets -->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+  <link rel="stylesheet" href="styles/rating.css">
   <link rel="stylesheet" href="styles/shared-style.css">
   <link rel="stylesheet" href="styles/break-style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -36,7 +37,7 @@
       <button id="time" style="font-weight:bold">
         Break time remaining: 00:00
       </button>
-    </div> 
+    </div>
   </div>
 
   <!-- Landing-Page -->
@@ -45,9 +46,86 @@
       Break time!
     </div>
     <br>
-    <p style="font-size:20px">Congrats, you've earned yourself a break! 
-      To get the most out of your break, why not explore the range of short exercise videos, relaxation tips, 
-      and motivational quotes that we have in store for you? 
+
+    <div class="rating-container">
+      <div id="pro-post" class="rating-post">
+        <div class="text">Thanks for rating your productivity!</div>
+        <div id="pro-edit" class="edit">edit</div>
+      </div>
+      <div id="pro-star-widget" class="star-widget">
+        <div class="rating-title">
+          Rate your productivity during that study session
+        </div>
+        <input type="radio" name="p-rate" id="p-rate-10">
+        <label for="p-rate-10" class="fas fa-star"></label>
+        <input type="radio" name="p-rate" id="p-rate-9">
+        <label for="p-rate-9" class="fas fa-star"></label>
+        <input type="radio" name="p-rate" id="p-rate-8">
+        <label for="p-rate-8" class="fas fa-star"></label>
+        <input type="radio" name="p-rate" id="p-rate-7">
+        <label for="p-rate-7" class="fas fa-star"></label>
+        <input type="radio" name="p-rate" id="p-rate-6">
+        <label for="p-rate-6" class="fas fa-star"></label>
+        <input type="radio" name="p-rate" id="p-rate-5">
+        <label for="p-rate-5" class="fas fa-star"></label>
+        <input type="radio" name="p-rate" id="p-rate-4">
+        <label for="p-rate-4" class="fas fa-star"></label>
+        <input type="radio" name="p-rate" id="p-rate-3">
+        <label for="p-rate-3" class="fas fa-star"></label>
+        <input type="radio" name="p-rate" id="p-rate-2">
+        <label for="p-rate-2" class="fas fa-star"></label>
+        <input type="radio" name="p-rate" id="p-rate-1">
+        <label for="p-rate-1" class="fas fa-star"></label>
+        <form action="#">
+          <header></header>
+          <div class="rating-btn">
+            <button id="pro-btn" class="rating-btn-btn" type="submit">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="rating-container">
+      <div id="mood-post" class="rating-post">
+        <div class="text">Thanks for rating your mood!</div>
+        <div id="mood-edit" class="edit">edit</div>
+      </div>
+      <div id="mood-star-widget" class="star-widget">
+        <div class="rating-title">
+          Rate your mood during that study session
+        </div>
+        <input type="radio" name="m-rate" id="m-rate-10">
+        <label for="m-rate-10" class="fas fa-star"></label>
+        <input type="radio" name="m-rate" id="m-rate-9">
+        <label for="m-rate-9" class="fas fa-star"></label>
+        <input type="radio" name="m-rate" id="m-rate-8">
+        <label for="m-rate-8" class="fas fa-star"></label>
+        <input type="radio" name="m-rate" id="m-rate-7">
+        <label for="m-rate-7" class="fas fa-star"></label>
+        <input type="radio" name="m-rate" id="m-rate-6">
+        <label for="m-rate-6" class="fas fa-star"></label>
+        <input type="radio" name="m-rate" id="m-rate-5">
+        <label for="m-rate-5" class="fas fa-star"></label>
+        <input type="radio" name="m-rate" id="m-rate-4">
+        <label for="m-rate-4" class="fas fa-star"></label>
+        <input type="radio" name="m-rate" id="m-rate-3">
+        <label for="m-rate-3" class="fas fa-star"></label>
+        <input type="radio" name="m-rate" id="m-rate-2">
+        <label for="m-rate-2" class="fas fa-star"></label>
+        <input type="radio" name="m-rate" id="m-rate-1">
+        <label for="m-rate-1" class="fas fa-star"></label>
+        <form action="#">
+          <header></header>
+          <div class="rating-btn">
+            <button id="mood-btn" class="rating-btn-btn" type="submit">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <p style="font-size:20px">Congrats, you've earned yourself a break!
+      To get the most out of your break, why not explore the range of short exercise videos, relaxation tips,
+      and motivational quotes that we have in store for you?
     </p>
     </br>
     </br>
@@ -71,8 +149,10 @@
         </label>
       </div>
 
-      <button id='create-solo' class='styled-button' value='Create' style="font-size:15px; width: 300px; margin-bottom: 5px;">Continue study session</button>
-      <button id='cancelAlarm' class='red-text-button' style="font-size:15px; width: 300px; margin-top: 20px;">Cancel study session</button>
+      <button id='create-solo' class='styled-button' value='Create'
+        style="font-size:15px; width: 300px; margin-bottom: 5px;">Continue study session</button>
+      <button id='cancelAlarm' class='red-text-button' style="font-size:15px; width: 300px; margin-top: 20px;">Cancel
+        study session</button>
     </div>
   </div>
 
@@ -84,12 +164,15 @@
       <div align="center">
         <br>
         <br>
-        <p style="font-size:30px; color: #6400A2; font-weight: bold; width: 100%;">Here's a short exercise to help you stay active!</p>
+        <p style="font-size:30px; color: #6400A2; font-weight: bold; width: 100%;">Here's a short exercise to help you
+          stay active!</p>
         <br>
-        <p style="font-size:20px">We've chosen exercises that are suitable to be done indoors, using little to no equipment.</p>
+        <p style="font-size:20px">We've chosen exercises that are suitable to be done indoors, using little to no
+          equipment.</p>
         <p style="font-size:20px">If you're looking for more exercises, we've got 3 more exercise videos for you: </p>
         <br>
-        <button id="more-exercise-videos" class="styled-button" style="font-size:15px; width: 300px; padding: auto; margin: auto">More videos</button>
+        <button id="more-exercise-videos" class="styled-button"
+          style="font-size:15px; width: 300px; padding: auto; margin: auto">More videos</button>
       </div>
       <!-- this div will be injected some HTML code via a script -->
       <div class="single_exercise_video"></div>
@@ -100,32 +183,36 @@
   <!---------------------------------------------------------------------------->
   <!-- More Exercise Page -->
   <div id="more-exercise-page" class="tab more-exercise-page" style="display:none">
+    <div class="page-header more-header">
+      <div class="title">
+        Here are 3 more short exercises to help you stay active!
+      </div>
+    </div>
+    <div class="page-content">
+      <!-- this div will be injected some HTML code via a script -->
+      <div class="more-exercise-videos"></div>
+    </div>
     <div class="move-back" id="move-back">
       <img src="icons/arrow_back_purple_36dp.svg" alt="">
       <div class="back-text">
         back
       </div>
     </div>
-    <div class="page-content">
-      <div align="center">   
-        <p style="font-size:30px; color: #6400A2; font-weight: bold; width: 100%;">Here are 3 more short exercise to help you stay active!</p>
-      </div>
-      <!-- this div will be injected some HTML code via a script -->
-      <div class="more-exercise-videos"></div>
-    </div>
   </div>
 
   <!---------------------------------------------------------------------------->
   <!-- Relax -->
   <div id="relax-page" class="tab relax-page center-of-page" style="display:none">
-    
+
     <div class="page-header" style="font-size:30px;">
       Here's a tip to help you relax!
     </div>
-    
+
     <div align="center">
       <br>
-      <div id="output-activity"><h2></h2></div>
+      <div id="output-activity">
+        <h2></h2>
+      </div>
       <button id="activity" class="styled-button" style="font-size:15px; width: 300px">Get another relaxing tip</button>
     </div>
   </div>
@@ -133,14 +220,14 @@
   <!---------------------------------------------------------------------------->
   <!-- Motivation-Page -->
   <div id="motivation-page" class="tab motivation-page center-of-page" style="display:none">
-    
+
     <div class="page-header" style="font-size:30px;">
       Here's a motivational quote to keep you going!
     </div>
 
     <div align="center">
       <br>
-      <div id="output-quote" ></div>
+      <div id="output-quote"></div>
       <button id="quote" class="styled-button" style="font-size:15px; width: 300px">Get another quote</button>
     </div>
   </div>
@@ -149,6 +236,7 @@
   <!-- Scripts: -->
   <script type="module" src="bundles/break_bundle.js"></script>
   <script src="countdown.js"></script>
+  <script src="rating.js"></script>
 
 </body>
 

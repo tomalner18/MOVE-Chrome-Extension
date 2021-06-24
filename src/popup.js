@@ -1,15 +1,15 @@
 function setAlarm() {
   let minutes = parseFloat(document.getElementById("study-time").value);
   let pause = parseFloat(document.getElementById("break-time").value);
-  chrome.storage.local.set({'pausetime': pause}, function (){
+  chrome.storage.local.set({ 'pausetime': pause }, function () {
     console.log("Storage Succesful");
   });
-  chrome.storage.local.set({timer: true, break: false, paused: false});
-  chrome.browserAction.setBadgeText({text: 'ON'});
-  chrome.browserAction.setBadgeBackgroundColor({color: 'green'});
+  chrome.storage.local.set({ timer: true, break: false, paused: false });
+  chrome.browserAction.setBadgeText({ text: 'ON' });
+  chrome.browserAction.setBadgeBackgroundColor({ color: 'green' });
   var endtime = Date.now() + 1000 * 60 * minutes;
-  chrome.alarms.create({when: endtime});
-  chrome.storage.local.set({minutes: minutes, endtime: endtime});
+  chrome.alarms.create({ when: endtime });
+  chrome.storage.local.set({ minutes: minutes, endtime: endtime });
   window.close();
 }
 
@@ -18,38 +18,39 @@ var countdown_id;
 
 // same implementation as the one in countdown.js
 function startTimer(duration, display) {
-  var timer = duration; 
-  var minutes; 
+  var timer = duration;
+  var minutes;
   var seconds;
   countdown_id = setInterval(function () {
-      minutes = parseInt(timer / 60, 10);
-      seconds = parseInt(timer % 60, 10);
+    minutes = parseInt(timer / 60, 10);
+    seconds = parseInt(timer % 60, 10);
 
-      minutes = minutes < 10 ? "0" + minutes : minutes;
-      seconds = seconds < 10 ? "0" + seconds : seconds;
+    minutes = minutes < 10 ? "0" + minutes : minutes;
+    seconds = seconds < 10 ? "0" + seconds : seconds;
 
-      display.textContent = minutes + " mins " + seconds + " s to next break";
+    display.textContent = minutes + " mins " + seconds + " s to next break";
 
-      if (--timer < 0) {
-          timer = duration;
-          clearInterval(countdown_id);
-      }
+    if (--timer < 0) {
+      timer = duration;
+      clearInterval(countdown_id);
+    }
   }, 1000);
 }
-  
+
 function clearAlarm() {
-    chrome.browserAction.setBadgeText({text: ''});
-    chrome.alarms.clearAll();
-    chrome.storage.local.set({timer: false} , function (){
-      console.log("Storage Succesful");});
-    window.close();
+  chrome.browserAction.setBadgeText({ text: '' });
+  chrome.alarms.clearAll();
+  chrome.storage.local.set({ timer: false }, function () {
+    console.log("Storage Succesful");
+  });
+  window.close();
 }
 
 function pauseAlarm() {
-  chrome.storage.local.get(["endtime"], function(result) {
-    var durationLeft = (result.endtime - Date.now())/1000;
+  chrome.storage.local.get(["endtime"], function (result) {
+    var durationLeft = (result.endtime - Date.now()) / 1000;
     chrome.extension.getBackgroundPage().console.log("durationLeft: " + durationLeft);
-    chrome.storage.local.set({durationLeft: durationLeft, paused: true}, function() {
+    chrome.storage.local.set({ durationLeft: durationLeft, paused: true }, function () {
       console.log("Storage Succesful");
 
       // stop the countdown and freeze it.
@@ -60,21 +61,21 @@ function pauseAlarm() {
       document.getElementById('pause').style.display = 'none';
       document.getElementById('continue').style.display = '';
 
-      chrome.browserAction.setBadgeText({text: 'PAUSED'});
-      chrome.browserAction.setBadgeBackgroundColor({color: 'green'});
-    });    
+      chrome.browserAction.setBadgeText({ text: 'PAUSED' });
+      chrome.browserAction.setBadgeBackgroundColor({ color: 'green' });
+    });
   });
 }
 
 // continue from a paused alarm.
 function continueAlarm() {
-  chrome.storage.local.get("durationLeft", function(result) {
+  chrome.storage.local.get("durationLeft", function (result) {
     var endtime = Date.now() + (1000 * result.durationLeft);
-    chrome.alarms.create({when: endtime});
-    chrome.storage.local.set({endtime: endtime, paused: false});
+    chrome.alarms.create({ when: endtime });
+    chrome.storage.local.set({ endtime: endtime, paused: false });
 
-    chrome.browserAction.setBadgeText({text: 'ON'});
-    chrome.browserAction.setBadgeBackgroundColor({color: 'green'});
+    chrome.browserAction.setBadgeText({ text: 'ON' });
+    chrome.browserAction.setBadgeBackgroundColor({ color: 'green' });
 
     window.close();
   })
@@ -163,24 +164,24 @@ function displayWorkingHomePage() {
   document.getElementById("home-page-when-working").style.display = "grid";
 
   // if paused, then I want to show the paused duration left:
-  chrome.storage.local.get(["paused", "durationLeft"], function(result) {
+  chrome.storage.local.get(["paused", "durationLeft"], function (result) {
     if (result.paused) {
       minutes = parseInt(result.durationLeft / 60, 10);
       seconds = parseInt(result.durationLeft % 60, 10);
-  
+
       minutes = minutes < 10 ? "0" + minutes : minutes;
       seconds = seconds < 10 ? "0" + seconds : seconds;
-      
+
       var display = document.querySelector('#countdown');
       display.textContent = minutes + " mins " + seconds + " s to next break";
 
       // I also want to have the continue button displayed, instead of the pause one.
       document.getElementById('pause').style.display = 'none';
       document.getElementById('continue').style.display = '';
-    }    
+    }
   })
 }
-  
+
 //An Alarm delay of less than the minimum 1 minute will fire
 // in approximately 1 minute incriments if released
 iniNav();
@@ -198,21 +199,24 @@ chrome.storage.local.get("timer", function (result) {
 });
 
 // starting the countdown when the user has just started a work session.
-window.onload = function () {
-  chrome.storage.local.get(["timer", "endtime", "paused"], function (result) {
-    if (result.timer && !result.paused) {
-      var display = document.querySelector('#countdown');
-      var end = (result.endtime - Date.now())/1000;
+chrome.storage.local.get(["timer", "endtime", "paused"], function (result) {
+  if (result.timer && !result.paused) {
+    var display = document.querySelector('#countdown');
+    var end = (result.endtime - Date.now()) / 1000;
 
-      startTimer(end, display);
-    }
-  });
-};
+    startTimer(end, display);
+  }
+});
 
 // populate the study-time and break-time parameter boxes with values that were previously inputed.
-chrome.storage.local.get(["minutes", "pausetime"], function(result) {
+chrome.storage.local.get(["minutes", "pausetime"], function (result) {
   if (result.minutes && result.pausetime) {
     document.getElementById("study-time").value = result.minutes;
     document.getElementById("break-time").value = result.pausetime;
   }
+})
+
+chrome.storage.sync.get(["productivity", "mood"], function (result) {
+  document.getElementById("productivity-val").textContent = Math.round(result.productivity) + "%";
+  document.getElementById("mood-val").textContent = Math.round(result.mood) + "%";
 })
