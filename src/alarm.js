@@ -22,7 +22,7 @@ function notifyFinish() {
     type: "basic",
     iconUrl: "icons/logo48.png",
     requireInteraction: true,
-    title:    'Study Break!',
+    title:    'Work Break!',
     message:  default_config.break_message,
     buttons: [
       {title: 'Exercises'}
