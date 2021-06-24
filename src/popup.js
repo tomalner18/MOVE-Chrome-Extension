@@ -216,6 +216,7 @@ chrome.storage.local.get(["minutes", "pausetime"], function (result) {
   }
 })
 
+// stats page stuff
 chrome.storage.sync.get(["productivity", "mood"], function (result) {
   document.getElementById("productivity-val").textContent = Math.round(result.productivity) + "%";
   document.getElementById("mood-val").textContent = Math.round(result.mood) + "%";

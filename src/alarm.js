@@ -86,6 +86,23 @@ chrome.alarms.onAlarm.addListener(function() {
         chrome.storage.local.set({timer: false, break: true} , function () {
           console.log("End of break");
         });
+
+        // calculating the total work stats.
+        var work_minutes = 0;
+        chrome.storage.local.get("minutes", function(result) {
+          work_minutes = result.minutes;
+        })
+
+        // add the minutes worked in the work session into the today_work_minutes_total
+        chrome.storage.sync.get(["today_work_minutes_total"], function(result) {
+          if (result.today_work_minutes_total == undefined) {
+            result.today_work_minutes_total = work_minutes;
+          }
+          else {
+            result.today_work_minutes_total += work_minutes;
+          }
+        })
+
         chrome.browserAction.setBadgeText({text: 'OFF'});
         chrome.browserAction.setBadgeBackgroundColor({color: 'red'})
         chrome.notifications.create(`my-notification-${Date.now()}`,{
@@ -101,8 +118,8 @@ chrome.alarms.onAlarm.addListener(function() {
           function(id) {
             myNotificationID = id + 1;
           });
-          var sound = new Audio('./mixkit-positive-notification-951.wav')
-            sound.play();
+          var sound = new Audio('./mixkit-positive-notification-951.wav');
+          sound.play();
       } 
       
       // when timer is true, and break is true
