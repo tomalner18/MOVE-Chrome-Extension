@@ -96,13 +96,13 @@ button.active {
   width: 490px;
   height: 300px;
   grid-template-columns: 54% 46%;
-  grid-template-rows: 64% 36%;
+  grid-template-rows: 100%;
   gap: 0px 0px;
   position: relative;
   top: 0;
   left: 0;
   grid-auto-flow: row;
-  grid-template-areas: "wellbeing Percentage-Scores" "wellbeing work-total";
+  grid-template-areas: "wellbeing Percentage-Scores";
 }
 
 .Wellbeing-Circle {
@@ -158,6 +158,7 @@ button.active {
   flex-direction: column;
   margin-bottom: 5px;
   color: #fff;
+  justify-content: center;
 }
 
 .stat-score {
