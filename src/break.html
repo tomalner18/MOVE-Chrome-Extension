@@ -8,7 +8,7 @@
   <title>Take a break!</title>
 
   <!-- Stylesheets -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
   <link rel="stylesheet" href="styles/rating.css">
   <link rel="stylesheet" href="styles/shared-style.css">
   <link rel="stylesheet" href="styles/break-style.css">
@@ -41,137 +41,131 @@
   </div>
 
   <!-- Landing-Page -->
-  <div id="landing-page" class="tab landing-page center-of-page">
-    <div class="page-header" style="font-size:30px;">
+  <div id="landing-page" class="tab landing-page">
+    <div class="page-header landing-header">
       Break time!
     </div>
+    <div class="sub-head">
+      Congrats, you've earned yourself a break!
+    </div>
     <br>
-
-    <div class="rating-container">
-      <div id="pro-post" class="rating-post">
-        <div class="text">Thanks for rating your productivity!</div>
-        <div id="pro-edit" class="edit">edit</div>
-      </div>
-      <div id="pro-star-widget" class="star-widget">
-        <div class="rating-title">
-          Rate your productivity during that study session
-        </div>
-        <input type="radio" name="p-rate" id="p-rate-10">
-        <label for="p-rate-10" class="fas fa-star"></label>
-        <input type="radio" name="p-rate" id="p-rate-9">
-        <label for="p-rate-9" class="fas fa-star"></label>
-        <input type="radio" name="p-rate" id="p-rate-8">
-        <label for="p-rate-8" class="fas fa-star"></label>
-        <input type="radio" name="p-rate" id="p-rate-7">
-        <label for="p-rate-7" class="fas fa-star"></label>
-        <input type="radio" name="p-rate" id="p-rate-6">
-        <label for="p-rate-6" class="fas fa-star"></label>
-        <input type="radio" name="p-rate" id="p-rate-5">
-        <label for="p-rate-5" class="fas fa-star"></label>
-        <input type="radio" name="p-rate" id="p-rate-4">
-        <label for="p-rate-4" class="fas fa-star"></label>
-        <input type="radio" name="p-rate" id="p-rate-3">
-        <label for="p-rate-3" class="fas fa-star"></label>
-        <input type="radio" name="p-rate" id="p-rate-2">
-        <label for="p-rate-2" class="fas fa-star"></label>
-        <input type="radio" name="p-rate" id="p-rate-1">
-        <label for="p-rate-1" class="fas fa-star"></label>
-        <form action="#">
-          <header></header>
-          <div class="rating-btn">
-            <button id="pro-btn" class="rating-btn-btn" type="submit">Submit</button>
-          </div>
-        </form>
-      </div>
-    </div>
-
-    <div class="rating-container">
-      <div id="mood-post" class="rating-post">
-        <div class="text">Thanks for rating your mood!</div>
-        <div id="mood-edit" class="edit">edit</div>
-      </div>
-      <div id="mood-star-widget" class="star-widget">
-        <div class="rating-title">
-          Rate your mood during that study session
-        </div>
-        <input type="radio" name="m-rate" id="m-rate-10">
-        <label for="m-rate-10" class="fas fa-star"></label>
-        <input type="radio" name="m-rate" id="m-rate-9">
-        <label for="m-rate-9" class="fas fa-star"></label>
-        <input type="radio" name="m-rate" id="m-rate-8">
-        <label for="m-rate-8" class="fas fa-star"></label>
-        <input type="radio" name="m-rate" id="m-rate-7">
-        <label for="m-rate-7" class="fas fa-star"></label>
-        <input type="radio" name="m-rate" id="m-rate-6">
-        <label for="m-rate-6" class="fas fa-star"></label>
-        <input type="radio" name="m-rate" id="m-rate-5">
-        <label for="m-rate-5" class="fas fa-star"></label>
-        <input type="radio" name="m-rate" id="m-rate-4">
-        <label for="m-rate-4" class="fas fa-star"></label>
-        <input type="radio" name="m-rate" id="m-rate-3">
-        <label for="m-rate-3" class="fas fa-star"></label>
-        <input type="radio" name="m-rate" id="m-rate-2">
-        <label for="m-rate-2" class="fas fa-star"></label>
-        <input type="radio" name="m-rate" id="m-rate-1">
-        <label for="m-rate-1" class="fas fa-star"></label>
-        <form action="#">
-          <header></header>
-          <div class="rating-btn">
-            <button id="mood-btn" class="rating-btn-btn" type="submit">Submit</button>
-          </div>
-        </form>
-      </div>
-    </div>
-
-    <p style="font-size:20px">Congrats, you've earned yourself a break!
+    <div class="desc">
       To get the most out of your break, why not explore the range of short exercise videos, relaxation tips,
       and motivational quotes that we have in store for you?
-    </p>
-    </br>
-    </br>
-    <p style="font-size:20px">
-      Feel free to continue studying after your break.
-    </p>
-
-    </br>
-    <br>
-    <div class="page-content">
-      <div class="session-field center">
-        <label style="font-size:20px">Choose a study duration:
-          <input id="study-time" type="number" min="5" max="120" value="45" />
-          &nbsp; minutes
-        </label>
+    </div>
+    <div class="desc">
+      Feel free to resume working when you feel refreshed
+    </div>
+    <div class="desc">
+      Or try rating your session to track your progress over time
+    </div>
+    <div class="landing-container">
+      <div class="study-half">
+        <div class="half-head">
+          Resume work
+        </div>
+        <div class="page-content break-content">
+          <div class="session-field center">
+            <label style="font-size:20px">Choose a work duration:
+              <input id="study-time" type="number" min="5" max="120" value="45" />
+              &nbsp; minutes
+            </label>
+          </div>
+          <div class="session-field center">
+            <label style="font-size:20px">Choose a break duration:
+              <input id="break-time" type="number" min="5" max="120" value="10" />
+              &nbsp; minutes
+            </label>
+          </div>
+          <br>
+          <button id='create-solo' class='styled-button break-button' value='Create'
+            style="font-size:15px; width: 300px; margin-bottom: 5px;">Continue work session</button>
+          <button id='cancelAlarm' class='red-text-button'
+            style="font-size:15px; width: 300px; margin-top: 20px;">Cancel
+            study session</button>
+        </div>
       </div>
-      <div class="session-field center">
-        <label style="font-size:20px">Choose a break duration:
-          <input id="break-time" type="number" min="5" max="120" value="10" />
-          &nbsp; minutes
-        </label>
-      </div>
+      <div class="rating-half">
+        <div class="half-head">
+          Rate session
+        </div>
+        <div class="rating-double">
+          <div class="rating-container">
+            <div id="pro-post" class="rating-post">
+              <div class="text">Productivity rated!</div>
+              <div id="pro-edit" class="edit">edit</div>
+            </div>
+            <div id="pro-star-widget" class="star-widget">
+              <div class="rating-title">
+                How productive were you?
+              </div>
+              <input type="radio" name="p-rate" id="p-rate-5">
+              <label for="p-rate-5" class="fas fa-star"></label>
+              <input type="radio" name="p-rate" id="p-rate-4">
+              <label for="p-rate-4" class="fas fa-star"></label>
+              <input type="radio" name="p-rate" id="p-rate-3">
+              <label for="p-rate-3" class="fas fa-star"></label>
+              <input type="radio" name="p-rate" id="p-rate-2">
+              <label for="p-rate-2" class="fas fa-star"></label>
+              <input type="radio" name="p-rate" id="p-rate-1">
+              <label for="p-rate-1" class="fas fa-star"></label>
+              <form action="#">
+                <header></header>
+                <div class="rating-btn">
+                  <button id="pro-btn" class="rating-btn-btn" type="submit">Submit</button>
+                </div>
+              </form>
+            </div>
+          </div>
 
-      <button id='create-solo' class='styled-button' value='Create'
-        style="font-size:15px; width: 300px; margin-bottom: 5px;">Continue study session</button>
-      <button id='cancelAlarm' class='red-text-button' style="font-size:15px; width: 300px; margin-top: 20px;">Cancel
-        study session</button>
+          <div class="rating-container">
+            <div id="mood-post" class="rating-post">
+              <div class="text">Mood rated!</div>
+              <div id="mood-edit" class="edit">edit</div>
+            </div>
+            <div id="mood-star-widget" class="star-widget">
+              <div class="rating-title">
+                How was your mood?
+              </div>
+              <input type="radio" name="m-rate" id="m-rate-5">
+              <label for="m-rate-5" class="fas fa-star"></label>
+              <input type="radio" name="m-rate" id="m-rate-4">
+              <label for="m-rate-4" class="fas fa-star"></label>
+              <input type="radio" name="m-rate" id="m-rate-3">
+              <label for="m-rate-3" class="fas fa-star"></label>
+              <input type="radio" name="m-rate" id="m-rate-2">
+              <label for="m-rate-2" class="fas fa-star"></label>
+              <input type="radio" name="m-rate" id="m-rate-1">
+              <label for="m-rate-1" class="fas fa-star"></label>
+              <form action="#">
+                <header></header>
+                <div class="rating-btn">
+                  <button id="mood-btn" class="rating-btn-btn" type="submit">Submit</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
   <!---------------------------------------------------------------------------->
   <!-- Exercise-Page -->
   <div id="exercise-page" class="tab exercise-page" style="display:none">
+    <div class="page-header break-header" float="none">
+      Here's a short exercise to help you
+      stay active!
+    </div>
     <div class="page-content">
       <br>
       <div align="center">
-        <br>
-        <br>
-        <p style="font-size:30px; color: #6400A2; font-weight: bold; width: 100%;">Here's a short exercise to help you
-          stay active!</p>
         <br>
         <p style="font-size:20px">We've chosen exercises that are suitable to be done indoors, using little to no
           equipment.</p>
         <p style="font-size:20px">If you're looking for more exercises, we've got 3 more exercise videos for you: </p>
         <br>
-        <button id="more-exercise-videos" class="styled-button"
+        <button id="more-exercise-videos" class="styled-button break-button"
           style="font-size:15px; width: 300px; padding: auto; margin: auto">More videos</button>
       </div>
       <!-- this div will be injected some HTML code via a script -->
@@ -183,7 +177,7 @@
   <!---------------------------------------------------------------------------->
   <!-- More Exercise Page -->
   <div id="more-exercise-page" class="tab more-exercise-page" style="display:none">
-    <div class="page-header more-header">
+    <div class="page-header break-header">
       <div class="title">
         Here are 3 more short exercises to help you stay active!
       </div>
@@ -213,7 +207,8 @@
       <div id="output-activity">
         <h2></h2>
       </div>
-      <button id="activity" class="styled-button" style="font-size:15px; width: 300px">Get another relaxing tip</button>
+      <button id="activity" class="styled-button break-button" style="font-size:15px; width: 300px">Get another relaxing
+        tip</button>
     </div>
   </div>
 
@@ -228,7 +223,8 @@
     <div align="center">
       <br>
       <div id="output-quote"></div>
-      <button id="quote" class="styled-button" style="font-size:15px; width: 300px">Get another quote</button>
+      <button id="quote" class="styled-button break-button" style="font-size:15px; width: 300px">Get another
+        quote</button>
     </div>
   </div>
 

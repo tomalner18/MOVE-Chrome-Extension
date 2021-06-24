@@ -18,14 +18,14 @@ function setPro() {
     }
 
     // Find the rating
-    for (i = 0; i < 10; i++) {
+    for (i = 0; i < 5; i++) {
       var star = document.getElementById("p-rate-" + (i + 1));
       if (star.checked) {
         count = i + 1;
       }
     }
 
-    count = count * 10;
+    count = count * 20;
     avg = ((avg * pro_count) + count) / (pro_count + 1);
     pro_count = pro_count + 1;
   
@@ -56,14 +56,14 @@ function setMood() {
     }
 
     // Find the rating
-    for (i = 0; i < 10; i++) {
+    for (i = 0; i < 5; i++) {
       var star = document.getElementById("m-rate-" + (i + 1));
       if (star.checked) {
         count = i + 1;
       }
     }
 
-    count = count * 10;
+    count = count * 20;
     avg = ((avg * mood_count) + count) / (mood_count + 1);
     mood_count = mood_count + 1;
   
@@ -73,8 +73,6 @@ function setMood() {
     });
   })
 }
-
-// chrome.storage.sync.clear();
 
 const pro_btn = document.getElementById("pro-btn");
 const pro_post = document.getElementById("pro-post");

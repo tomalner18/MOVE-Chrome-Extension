@@ -44,6 +44,72 @@ button.active {
   display: grid;
 }
 
+.landing-header {
+  font-size: 40px;
+  margin: 20px 0px 0px 20px
+}
+
+.sub-head {
+  color: #6400a1;
+  font-size: large;
+  font-style: italic;
+  margin-left: 20px;
+}
+
+.landing-container {
+  margin-top: 100px;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-auto-flow: row;
+}
+
+.study-half {
+  margin: auto;
+}
+
+.rating-half {
+  margin-top: 0px;
+}
+
+.rating-double {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.half-head {
+  color: #6400a1;
+  margin: auto;
+  font-size: x-large;
+  font-weight: bold;
+  text-align: center;
+}
+
+.desc {
+  color: #6400a1;
+  margin-left: 20px;
+  margin-bottom: 5px;
+  font-size: medium;
+}
+
+.break-header {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.break-button {
+  border: none;
+  background-color: inherit;
+  padding: 10px 20px;
+  /* margin-top: 30px;
+  margin-left: 5px; */
+  margin: auto;
+  cursor: pointer;
+  border-radius: 16px;
+  width: 30%;
+  font-weight: bold;
+}
+
 .button0 {
   background-color: rgb(230, 223, 223);
   border: black 2px solid;
@@ -99,12 +165,6 @@ button.active {
 /* for the more exercises page */
 
 /* Create three equal columns that floats next to each other */
-
-.more-header {
-  margin-top: 30px;
-  place-items: center;
-  width: 100%;
-}
 
 .move-back {
   border-radius: 5px;

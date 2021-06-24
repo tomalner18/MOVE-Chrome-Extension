@@ -3,7 +3,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  /* font-family: 'Poppins', sans-serif; */
+  font-family: 'Poppins', sans-serif;
 }
 
 .rating-title {
@@ -14,15 +14,17 @@
 }
 
 .rating-container {
+  margin: 5px;
   position: relative;
   background: rgb(119, 0, 255);
-  padding: 20px 30px;
+  padding: 15px 10px 15px 10px;
   border: 1px solid #444;
   border-radius: 5px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  width: 360px;
 }
 
 .rating-container .rating-post {
@@ -71,7 +73,7 @@ input:checked~label {
   color: #fd4;
 }
 
-input#p-rate-10:checked~label {
+input#p-rate-5:checked~label {
   color: #fe7;
   text-shadow: 0 0 20px #952;
 }

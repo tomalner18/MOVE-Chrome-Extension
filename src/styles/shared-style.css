@@ -40,6 +40,15 @@ body {
   width: 100%;
 }
 
+.session-field {
+  margin-top: 5px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  color: #6400A2;
+  font-size: medium;
+  font-weight: bold;
+}
+
 button {
   margin: 0px;
   outline: none;
@@ -122,8 +131,9 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   background-color: inherit;
   color: red;
   padding: 10px 20px;
-  margin-top: 30px;
-  margin-left: 5px;
+  /* margin-top: 30px;
+  margin-left: 5px; */
+  margin: auto;
   cursor: pointer;
   border-radius: 16px;
   width: 30%;
