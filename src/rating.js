@@ -4,7 +4,7 @@ function setPro() {
     var pro_count;
     var avg;
 
-    if (result.pro_count == undefined) {
+    if (result.productivity_count == undefined) {
       pro_count = 0;
     }
     else {
