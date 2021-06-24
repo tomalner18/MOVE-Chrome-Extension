@@ -40,6 +40,20 @@ function openBreakWindow() {
     type: "popup",
     state: "maximized"
   });
+
+  // we've decided to trigger the break timer only when the break window is open, NOT when the study timer ends.
+  // the is_first_open_of_break_window field records if this openBreakWindow() call is the first one after the work session ends.
+  chrome.storage.local.get(['pausetime', 'is_first_open_of_break_window'], function(result) {
+    if (result.is_first_open_of_break_window) {
+      let endtime = Date.now() + 1000 * 60 * result.pausetime
+      chrome.storage.local.set({timerend: endtime}, function(){
+        chrome.alarms.create("break", {when: endtime});
+      });
+      chrome.storage.local.set({is_first_open_of_break_window: false}, function() {
+        console.log("Storage Succesful");
+      });
+    } 
+  });
 }
 
 chrome.alarms.onAlarm.addListener(function() {
@@ -54,8 +68,8 @@ chrome.alarms.onAlarm.addListener(function() {
         type:     'basic',
         iconUrl:  'icons/logo48.png',
         requireInteraction: true,
-        title:    'Study Break!',
-        message:  'It has come to the end of this study period, please take a break!',
+        title:    'Work Break!',
+        message:  'It has come to the end of this work period, please take a break!',
         buttons: [
           {title: 'Take a break'}
         ],
@@ -66,17 +80,14 @@ chrome.alarms.onAlarm.addListener(function() {
         chrome.browserAction.setBadgeText({text: 'BRK'});
         chrome.browserAction.setBadgeBackgroundColor({color: 'blue'})
 
-        chrome.storage.local.set({timer: false, break: true} , function (){
+        chrome.storage.local.set({timer: false, break: true, is_first_open_of_break_window: true} , function (){
           console.log("Storage Succesful");
 
           // during a break, users should be openning a new break.html window when they click on the chrome extension icon.
           chrome.browserAction.setPopup({popup: ""});
           chrome.browserAction.onClicked.addListener(openBreakWindow);
         });
-        let endtime = Date.now() + 1000 * 60 * result.pausetime
-        chrome.storage.local.set({timerend: endtime}, function(){
-          chrome.alarms.create("break", {when: endtime});
-        });
+  
         playSound();         
 
     } else {
