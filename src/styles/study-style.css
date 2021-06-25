@@ -270,9 +270,12 @@ button.active {
 }
 
 #viewCalendar, #viewGroups {
-  width: 100%;
+  width: 79%;
   height: 200%;
-  margin-top: 30%;
+  float: none;
+  margin-top: 11%;
+  margin-left: 15%;
+  margin-bottom: 17%;
 }
 
 @-moz-keyframes spinPulse {

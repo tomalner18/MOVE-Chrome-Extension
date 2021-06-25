@@ -114,6 +114,24 @@ function openStat() {
   document.getElementById("stat-page").style.display = "grid";
   var y = document.getElementById("stat-btn");
   y.classList.add("active")
+  fetch('https://moveimperial.herokuapp.com/api/todos/')
+.then(res => res.json())
+.then((res) => {
+  const data = res.data;
+  var shareInfoLen = Object.keys(res).length;
+  console.log(shareInfoLen);
+  var count = 0;
+  for (let i = shareInfoLen-1; i >= 0, count < 4; i--){
+    if (res[i].completed) {continue;}
+    count++;
+    if (count == 1) {console.log(res[i]); getElement('l1').innerHTML =  res[i].title;}
+    if (count == 2) {getElement('l2').innerHTML =  res[i].title;}
+    if (count == 3) {getElement('l3').innerHTML =  res[i].title;}
+    if (count == 4) {getElement('l4').innerHTML =  res[i].title;}
+
+
+  }
+});
 }
 
 function openCalendar() {
@@ -123,6 +141,25 @@ function openCalendar() {
   document.getElementById("calendar-page").style.display = "grid";
   var y = document.getElementById("calendar-btn");
   y.classList.add("active");
+  fetch('https://moveimperial.herokuapp.com/api/todos/')
+.then(res => res.json())
+.then((res) => {
+  const data = res.data;
+  var shareInfoLen = Object.keys(res).length;
+  console.log(shareInfoLen);
+  var count = 0;
+  for (let i = shareInfoLen-1; i >= 0, count < 4; i--){
+    if (res[i].completed) {continue;}
+    count++;
+    if (count == 1) {console.log(res[i]); getElement('l1').innerHTML =  res[i].title;}
+    if (count == 2) {getElement('l2').innerHTML =  res[i].title;}
+    if (count == 3) {getElement('l3').innerHTML =  res[i].title;}
+    if (count == 4) {getElement('l4').innerHTML =  res[i].title;}
+
+
+  }
+});
+  
 }
 
 function openSocial() {
@@ -154,7 +191,7 @@ function iniNav() {
   });
 
   document.getElementById('stat-btn').addEventListener('click', openStat);
-  // document.getElementById('calendar-btn').addEventListener('click', openCalendar);
+  document.getElementById('calendar-btn').addEventListener('click', openCalendar);
   // document.getElementById('social-btn').addEventListener('click', openSocial);
   // document.getElementById('more-btn').addEventListener('click', openMore);
 }
@@ -221,3 +258,8 @@ chrome.storage.sync.get(["productivity", "mood"], function (result) {
   document.getElementById("mood-val").textContent = Math.round(result.mood) + "%";
   document.getElementById("well-val").textContent = Math.round((result.mood + result.productivity) / 2) + "%";
 })
+
+function getElement(id) {
+  return document.getElementById(id);
+}
+

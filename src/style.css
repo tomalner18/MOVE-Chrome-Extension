@@ -1,0 +1,229 @@
+* {
+  box-sizing: border-box;
+  margin: 0px;
+}
+
+body {
+    width: 500px;
+    height: 420px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Nav-bar */
+
+.nav-container  {
+  background: linear-gradient(135deg, rgba(200, 12, 158) 2%, rgba(0, 125, 241) 110.6%);
+  mix-blend-mode: normal;
+  box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.25);
+  height: 70px;
+  overflow: hidden;
+}
+
+.nav-container button {
+  background-color: transparent;
+  border: none;
+  color: #ffffff;
+  float: left;
+  margin: 0px;
+  opacity: 0.6;
+  outline: none;
+  padding: 17px 17px;
+}
+
+.nav-container button:hover {
+  opacity: 0.9;
+  cursor: pointer;
+}
+
+button.active {
+  opacity: 1;
+}
+
+.nav-right {
+  float: right;
+  padding: 0%;
+}
+
+button {
+    margin: 0px;
+    outline: none;
+}
+
+
+
+/* Home-Page */
+
+
+
+#cal-link {
+  margin: auto;
+  width: 50%;
+  height:30%;
+  margin-top: 20px;
+}
+#viewCalendar, #viewGroups {
+  
+  width: 100%;
+  height:200%;
+  margin-top: 30%;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1.6fr 0.4fr 1fr;
+  gap: 0px 0px;
+  position: relative;
+  top: 0;
+  left: 0;
+  height: 300px;
+  width: 100%;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "Wellbeing-Circle Wellbeing-Circle Percentage-Scores"
+    "Wellbeing-Circle Wellbeing-Circle Work-Total"
+    "Wellbeing-Circle Wellbeing-Circle Work-Total";
+}
+
+.Wellbeing-Circle { grid-area: Wellbeing-Circle; }
+
+.Percentage-Scores { 
+  grid-area: Percentage-Scores; 
+  background: linear-gradient(300deg, rgb(250, 118, 222) 2%, rgb(104, 165, 221) 110.6%);
+  border-radius: 25px; 
+  margin-bottom: 30px;
+  margin-top: 55px;
+  padding-top: 10px;
+  text-align: center;
+}
+
+.Work-Total { 
+  grid-area: Work-Total; 
+  background: linear-gradient(300deg, rgb(250, 118, 222) 2%, rgb(104, 165, 221) 110.6%);
+  border-radius: 25px; 
+  text-align: center;
+  padding-top: 10px;
+ }
+
+ .Percentage-value{
+   margin-top: 20px;
+ }
+
+
+.icon {
+   top: -142px;
+   margin: 0 auto;
+   position: relative;
+   left: 145px;
+   color: #9908f3;
+}
+
+  .outerCircle {
+  background-color: transparent;
+  border: 8px solid rgba(200, 12, 158);
+  opacity: .9;
+  border-right: 5px solid transparent;
+  border-left: 5px solid transparent;
+  border-radius: 100px;
+  width: 150px;
+  height: 150px;
+  margin: 0 auto;
+  position: relative;
+  top: 60px;
+  -moz-animation: spinPulse 3s infinite ease-in-out;
+  -webkit-animation: spinPulse 3s infinite ease-in-out;
+  }
+  .innerCircle {
+  background-color: transparent;
+  border: 5px solid rgba(0, 125, 241);
+  opacity: .9;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-radius: 100px;
+  top: -76px;
+  width: 120px;
+  height: 120px;
+  margin: 0 auto;
+  position: relative;
+  -moz-animation: spinoffPulse 3s infinite linear;
+  -webkit-animation: spinoffPulse 3s infinite linear;
+  
+  }
+  
+  
+  @-moz-keyframes spinPulse {
+      0% { -moz-transform:rotate(160deg); opacity:0; box-shadow:0 0 1px #bdd73c;}
+    50% { -moz-transform:rotate(145deg); opacity:1; }
+    100% { -moz-transform:rotate(-320deg); opacity:0; }
+  }
+  @-moz-keyframes spinoffPulse {
+      0% { -moz-transform:rotate(0deg); }
+    100% { -moz-transform:rotate(360deg);  }
+  }
+  @-webkit-keyframes spinPulse {
+      0% { -webkit-transform:rotate(160deg); opacity:0; box-shadow:0 0 1px #bdd73c; }
+    50% { -webkit-transform:rotate(145deg); opacity:1;}
+    100% { -webkit-transform:rotate(-320deg); opacity:0; }
+  }
+  @-webkit-keyframes spinoffPulse {
+      0% { -webkit-transform:rotate(0deg); }
+    100% { -webkit-transform:rotate(360deg); }
+  }
+  @-moz-keyframes rotatecircle {
+      0% { -moz-transform:rotate(0deg); }
+    100% { -moz-transform:rotate(-360deg); }
+  }
+  
+  @-webkit-keyframes rotatecircle {
+      0% { -webkit-transform:rotate(0deg); }
+  100% { -webkit-transform:rotate(-360deg); }
+  }
+
+
+
+  /* Tooltip container */
+.tooltip {
+  margin-left: 25px;
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  font-size: xx-small;
+  padding: 5px 0;
+  border-radius: 6px;
+ 
+  /* Position the tooltip text - see examples below! */
+  position: absolute;
+  z-index: 1;
+}
+
+.tooltip .tooltiptext {
+  width: 120px;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -60px; /* Use half of the width (120/2 = 60), to center the tooltip */
+}
+
+.tooltip .tooltiptext::after {
+  content: " ";
+  position: absolute;
+  top: 100%; /* At the bottom of the tooltip */
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: black transparent transparent transparent;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
