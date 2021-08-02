@@ -25,7 +25,7 @@ button.active {
 /* Bottom-Bar */
 
 .bottom-bar {
-  height: 40px;
+  height: 42px;
   border-top: 3px solid #c4c4c4 !important;
 }
 
@@ -190,6 +190,43 @@ button.active {
   font-size: 20px;
   font-weight: bold;
   letter-spacing: 1px;
+}
+
+/* Settings */
+
+.settings-container {
+  display: grid;
+  width: 490px;
+  height: 264px;
+  grid-template-columns: 60% 40%;
+  grid-template-rows: 100%;
+  gap: 0px 0px;
+  position: relative;
+  top: 0;
+  left: 0;
+  grid-auto-flow: row;
+  grid-template-areas: "custom-settings settings-mode";
+}
+
+.custom-settings {
+  grid-area: custom-settings;
+  background: linear-gradient(124.58deg, rgba(200, 12, 158) -11.8%, rgba(0, 122, 255) 135.63%);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  color: #fff;
+  justify-content: center;
+}
+
+.settings-mode {
+  grid-area: settings-mode;
+}
+
+.settings-box {
+  display: grid;
+  grid-template-columns: 60% 40%;
 }
 
 /* Info-Tip */
