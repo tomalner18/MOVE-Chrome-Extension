@@ -205,7 +205,7 @@ button.active {
   top: 0;
   left: 0;
   grid-auto-flow: row;
-  grid-template-areas: "custom-settings settings-mode";
+  grid-template-areas: "custom-settings settings-modes";
 }
 
 .custom-settings {
@@ -220,13 +220,20 @@ button.active {
   justify-content: center;
 }
 
-.settings-mode {
-  grid-area: settings-mode;
+.settings-modes {
+  grid-area: settings-modes;
+  margin: 5px;
 }
 
 .settings-box {
   display: grid;
   grid-template-columns: 60% 40%;
+}
+
+.mode-header {
+  color: #6400a1;
+  font-size: large;
+  font-weight: bold;
 }
 
 /* Info-Tip */
