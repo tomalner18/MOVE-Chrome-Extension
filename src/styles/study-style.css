@@ -205,11 +205,11 @@ button.active {
   top: 0;
   left: 0;
   grid-auto-flow: row;
-  grid-template-areas: "custom-settings settings-modes";
+  grid-template-areas: "main-settings settings-modes";
 }
 
-.custom-settings {
-  grid-area: custom-settings;
+.main-settings {
+  grid-area: main-settings;
   background: linear-gradient(124.58deg, rgba(200, 12, 158) -11.8%, rgba(0, 122, 255) 135.63%);
   border-radius: 10px;
   display: flex;
@@ -220,9 +220,29 @@ button.active {
   justify-content: center;
 }
 
+.settings-header {
+  color: #ffffff;
+  font-size: large;
+  font-weight: bold;
+  margin-left: 5px;
+}
+
 .settings-box {
-  display: grid;
-  grid-template-columns: 60% 40%;
+  align-items: center;
+  display: flex;
+  justify-content: space-around;
+}
+
+.setting-input {
+  margin-left: 10px;
+  margin-top: 5px;
+  color:  #6400A2;
+  font-weight: bold;
+  text-align: center;
+  padding-right: 0px !important;
+  mix-blend-mode: normal;
+  border-radius: 5px;
+  border-color: #ffffff;
 }
 
 .settings-modes {

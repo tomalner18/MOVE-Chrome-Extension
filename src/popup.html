@@ -58,13 +58,13 @@
     <div class="page-content">
       <div class="session-field">
         <label>Choose a work duration:
-          <input id="study-time" type="number" min="5" max="120" value="45" />
+          <input id="study-time" class="session-input" type="number" min="5" max="120" value="45" />
           &nbsp; minutes
         </label>
       </div>
       <div class="session-field">
         <label>Choose a break duration:
-          <input id="break-time" type="number" min="5" max="120" value="10" />
+          <input id="break-time" class="session-input" type="number" min="5" max="120" value="10" />
           &nbsp; minutes
         </label>
       </div>
@@ -95,10 +95,11 @@
       <div align="center">
         <!-- pause button -->
         <button id='pause' class='styled-button pause-button'>Pause Work Session</button>
-  
+
         <!-- continue button. Will only be displayed when the timer is paused -->
-        <button id='continue' class='styled-button green-button pause-button' style="display:none">Continue Work Session</button>
-  
+        <button id='continue' class='styled-button green-button pause-button' style="display:none">Continue Work
+          Session</button>
+
         <!-- cancel work session button -->
         <button id='cancelAlarm2' class='red-text-button'>Cancel Work Session</button>
       </div>
@@ -187,7 +188,7 @@
           <!-- <div class="change">
             10%
           </div> -->
-        <!-- </div>
+      <!-- </div>
         <div class="past">
           Compared to 5:30 yesterday
         </div>
@@ -198,15 +199,16 @@
   <!-- Calendar-Page -->
   <div id="calendar-page" class="tab" style="display:none">
     <div class="vertical-center">
-      <a href="http://moveimperial.herokuapp.com" target="_blank"><button id='viewCalendar' class="session-button styled-button">View Calendar</button></a>
+      <a href="http://moveimperial.herokuapp.com" target="_blank"><button id='viewCalendar'
+          class="session-button styled-button">View Calendar</button></a>
       <ol>
         <li class=""><a id="l1" href="#"></a></li>
         <li class=""><a id="l2" href="#"></a></li>
         <li class=""><a id="l3" href="#"></a></li>
-        <li class=""><a  id="l4" href="#"></a></li>
-    </ol>
-  </div>
-      
+        <li class=""><a id="l4" href="#"></a></li>
+      </ol>
+    </div>
+
   </div>
 
   <!-- Social-Page -->
@@ -220,16 +222,41 @@
       Settings
     </div>
     <div class="settings-container">
-      <div class="custom-settings">
-        <div class="settings-box">
-          <div class="audio-text">
-            Enable audio cue
+      <div class="main-settings">
+        <div class="gen-settings">
+          <div class="settings-header">
+            General
           </div>
-          <div class="audio-btn">
-            <img src="icons/volume_up_white_36dp.svg" alt="">
+          <div class="settings-box">
+            <div class="setting-field">
+              <label>Default study duration
+                <input id="study-setting" class="setting-input" type="number" min="5" max="120" value="25" />
+              </label>
+            </div>
+          </div>
+          <div class="settings-box">
+            <div class="setting-field">
+              <label>Default break duration
+                <input id="break-setting" class="setting-input" type="number" min="5" max="120" value="5" />
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="custom-settings">
+          <div class="settings-header">
+            Custom Mode
+          </div>
+          <div class="settings-box">
+            <div class="audio-text">
+              Enable audio cue
+            </div>
+            <div class="audio-btn">
+              <img src="icons/volume_up_white_36dp.svg" alt="">
+            </div>
           </div>
         </div>
       </div>
+
       <div class="settings-modes">
         <div class="mode-header">
           Mode
