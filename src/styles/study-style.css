@@ -220,20 +220,49 @@ button.active {
   justify-content: center;
 }
 
-.settings-modes {
-  grid-area: settings-modes;
-  margin: 5px;
-}
-
 .settings-box {
   display: grid;
   grid-template-columns: 60% 40%;
+}
+
+.settings-modes {
+  /* grid-area: settings-modes; */
+  margin-left: 5px;
+  margin-right: 5px;
+  display: grid;
+  grid-auto-flow: row;
+  grid-template-rows: 10% 30% 30% 30%
 }
 
 .mode-header {
   color: #6400a1;
   font-size: large;
   font-weight: bold;
+}
+
+.mode-button {
+  align-items: center;
+  background: linear-gradient(135deg, rgba(200, 12, 158) 2%, rgba(0, 125, 241) 110.6%);
+  border: none;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  font-weight: bold;
+  justify-content: center;
+  opacity: 40%;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding: 10px 20px;
+  text-align: center;
+}
+
+.mode-button:hover {
+  opacity: 90%;
+}
+
+.active-mode {
+  opacity: 100%;
 }
 
 /* Info-Tip */

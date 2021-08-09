@@ -196,6 +196,31 @@ function iniNav() {
   document.getElementById('more-btn').addEventListener('click', openMore);
 }
 
+function iniModes() {
+  document.getElementById('custom-mode').addEventListener('click', changeCustom);
+  document.getElementById('private-mode').addEventListener('click', changePrivate);
+  document.getElementById('public-mode').addEventListener('click', changePublic);
+}
+
+function changeCustom () {
+  var x = document.getElementsByClassName('active-mode');
+  x[0].classList.remove("active-mode");
+  document.getElementById('custom-mode').classList.add('active-mode')
+}
+
+function changePrivate () {
+  var x = document.getElementsByClassName('active-mode');
+  x[0].classList.remove("active-mode");
+  document.getElementById('private-mode').classList.add('active-mode')
+}
+
+function changePublic () {
+  var x = document.getElementsByClassName('active-mode');
+  x[0].classList.remove("active-mode");
+  document.getElementById('public-mode').classList.add('active-mode')
+}
+
+
 function displayWorkingHomePage() {
   document.getElementById("home-page").style.display = "none";
   document.getElementById("home-page-when-working").style.display = "grid";
@@ -219,9 +244,12 @@ function displayWorkingHomePage() {
   })
 }
 
+// ******************** ALL INITIATION HERE ************************
+
 //An Alarm delay of less than the minimum 1 minute will fire
 // in approximately 1 minute incriments if released
 iniNav();
+iniModes();
 document.getElementById('create-solo').addEventListener('click', setAlarm);
 // document.getElementById('cancelAlarm').addEventListener('click', clearAlarm);
 document.getElementById('cancelAlarm2').addEventListener('click', clearAlarm);
