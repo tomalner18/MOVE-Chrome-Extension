@@ -198,14 +198,14 @@ button.active {
   display: grid;
   width: 490px;
   height: 264px;
-  grid-template-columns: 60% 40%;
+  grid-template-columns: 40% 60%;
   grid-template-rows: 100%;
   gap: 0px 0px;
   position: relative;
   top: 0;
   left: 0;
   grid-auto-flow: row;
-  grid-template-areas: "main-settings settings-modes";
+  grid-template-areas: "settings-modes main-settings ";
 }
 
 .main-settings {
@@ -216,8 +216,19 @@ button.active {
   justify-content: center;
   margin-top: 5px;
   margin-bottom: 5px;
-  overflow: auto;
+  overflow: hidden;
   overflow-x: hidden;
+  padding: 5px
+}
+
+.main-settings::-webkit-scrollbar-thumb {
+  background-image: linear-gradient(180deg, #D0368A 0%, #708AD4 99%);
+  box-shadow: inset 2px 2px 5px 0 rgba(#fff, 0.5);
+  border-radius: 100px;
+}
+
+.main-settings:hover {
+  overflow-y: overlay;
 }
 
 .settings-header {
@@ -257,12 +268,32 @@ button.active {
 }
 
 .save-button {
-  
+  align-items: center;
+  background: #0400ff;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  font-weight: bold;
+  justify-content: center;
+  margin: auto;
+  padding: 10px 20px;
+  text-align: center;
+  width: 100px;
+}
+
+.save-button:hover {
+  background: #00a71c;
+}
+
+.save-button:active {
+  transform: translateY(4px);
 }
 
 .settings-modes {
   /* grid-area: settings-modes; */
-  margin-left: 5px;
+  /* margin-left: 5px; */
   margin-right: 5px;
   display: grid;
   grid-auto-flow: row;
@@ -311,7 +342,7 @@ button.active {
   display: inline-block;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
-  margin-right: 10px;
+  margin-right: 8px;
 }
 
 .form-switch i {
