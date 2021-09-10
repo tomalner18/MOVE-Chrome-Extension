@@ -191,9 +191,9 @@ function iniNav() {
   });
 
   document.getElementById('stat-btn').addEventListener('click', openStat);
-  document.getElementById('calendar-btn').addEventListener('click', openCalendar);
+  // document.getElementById('calendar-btn').addEventListener('click', openCalendar);
   // document.getElementById('social-btn').addEventListener('click', openSocial);
-  document.getElementById('more-btn').addEventListener('click', openMore);
+  // document.getElementById('more-btn').addEventListener('click', openMore);
 }
 
 function iniModes() {
