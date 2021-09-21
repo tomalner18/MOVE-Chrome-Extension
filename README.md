@@ -8,7 +8,23 @@
 TO WRITE 
 ## Installation
 
-TO WRITE
+
+### 1. _Clone the repository:_
+
+```
+git clone https://github.com/tomalner18/MOVE-Chrome-Extension.git
+```
+### 2. _Load into Chrome:_
+
+Navigate to ```chrome://extensions```
+
+Enable Developer Mode by clicking the toggle switch next to **Developer mode**.
+
+Click the **Load unpacked** button and select the 'src' directory.
+
+_Additonal info on the [Chrome Developers](https://developer.chrome.com/docs/extensions/mv3/getstarted/) website_
+
+
 
 ## Usage
 
